@@ -3,1144 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Darbuka by ALBO — קרוסלה אינסטגרם</title>
+  <title>Darbuka by ALBO | אליה אלבו</title>
+  <meta name="description" content="שיעורי דרבוקה מקצועיים עם אליה אלבו. נגן, פרפורמר ומורה ברמה בינלאומית. שיעור ניסיון חינם." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --gold:       #C9A84C;
-      --gold-light: #E8CC7A;
-      --gold-dim:   #8A6B2E;
-      --black:      #0A0A0A;
-      --navy:       #0D1B2A;
-      --white:      #F5F0E8;
-      --gray:       #888;
-    }
-
-    html, body {
-      background: #080808;
-      font-family: 'Heebo', sans-serif;
-      color: var(--white);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ─── PAGE HEADER ─── */
-    .page-header {
-      text-align: center;
-      padding: 36px 20px 8px;
-    }
-    .page-header .brand-logo {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      margin-bottom: 10px;
-      object-fit: cover;
-    }
-    .page-header h1 {
-      font-size: 11px;
-      letter-spacing: 4px;
-      color: var(--gold);
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-    .page-header p {
-      font-size: 10px;
-      color: var(--gray);
-      margin-top: 3px;
-      letter-spacing: 1px;
-    }
-
-    /* ─── CAROUSEL SECTION ─── */
-    .carousel-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 16px 0;
-    }
-
-    /* ─── FRAME: fixed max, fluid below ─── */
-    .carousel-frame {
-      width: 100%;
-      max-width: 480px;
-    }
-
-    /* ─── TRACK: clips overflow ─── */
-    .slides-track {
-      width: 100%;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 24px 70px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,76,.12);
-      /* Aspect ratio 1:1 */
-      aspect-ratio: 1 / 1;
-      position: relative;
-    }
-
-    /* ─── INNER: LTR so slides stack left→right regardless of page dir ─── */
-    .slides-inner {
-      direction: ltr;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform .5s cubic-bezier(.77,0,.175,1);
-      will-change: transform;
-    }
-
-    /* ─── EACH SLIDE ─── */
-    .slide {
-      direction: rtl;           /* text back to RTL */
-      flex: 0 0 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      padding: clamp(20px, 5vw, 32px);
-    }
-
-    /* ─── BG ─── */
-    .slide-bg {
-      position: absolute; inset: 0;
-      background-size: cover;
-      background-position: center;
-      transition: transform 7s ease;
-    }
-    .slide.active .slide-bg { transform: scale(1.04); }
-
-    .slide-overlay {
-      position: absolute; inset: 0;
-    }
-
-    /* ─── SLIDE NUMBER ─── */
-    .slide-num {
-      position: absolute;
-      top: clamp(14px,3vw,20px);
-      left: clamp(14px,3vw,20px);
-      font-size: 10px;
-      color: rgba(201,168,76,.45);
-      font-weight: 300;
-      letter-spacing: 2px;
-      z-index: 3;
-    }
-
-    /* ─── CONTENT ─── */
-    .slide-content {
-      position: relative; z-index: 2; width: 100%;
-    }
-
-    .slide-tag {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--black);
-      font-size: clamp(8px,1.8vw,10px);
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-bottom: clamp(8px,2vw,12px);
-    }
-
-    .slide-headline {
-      font-size: clamp(20px, 5.5vw, 30px);
-      font-weight: 900;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: clamp(8px,2vw,12px);
-    }
-    .slide-headline .gold { color: var(--gold-light); }
-
-    .slide-body {
-      font-size: clamp(12px, 3vw, 15px);
-      font-weight: 400;
-      line-height: 1.65;
-      color: rgba(245,240,232,.8);
-    }
-
-    /* ══════════════════════
-       SLIDE 1 — HOOK
-    ══════════════════════ */
-    #slide-1 .slide-bg {
-      background-image: url('images/performance.jpeg');
-      background-position: center 28%;
-    }
-    #slide-1 .slide-overlay {
-      background: linear-gradient(
-        175deg,
-        rgba(10,10,10,.05) 0%,
-        rgba(10,10,10,.45) 38%,
-        rgba(10,10,10,.96) 100%
-      );
-    }
-    #slide-1 .slide-headline {
-      font-size: clamp(22px, 6vw, 34px);
-      line-height: 1.15;
-    }
-    #slide-1 .swipe-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: clamp(10px,2.5vw,14px);
-      font-size: clamp(11px,2.8vw,13px);
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: .5px;
-    }
-    #slide-1 .swipe-hint span {
-      animation: nudge 1.6s ease-in-out infinite;
-    }
-    @keyframes nudge {
-      0%,100% { transform: translateX(0); }
-      50%      { transform: translateX(-5px); }
-    }
-
-    /* ══════════════════════
-       SLIDE 2 — SOCIAL PROOF
-    ══════════════════════ */
-    #slide-2 .slide-bg {
-      background-image: url('images/desert.jpeg');
-      background-position: center 22%;
-    }
-    #slide-2 .slide-overlay {
-      background: linear-gradient(
-        170deg,
-        rgba(10,10,10,.1) 0%,
-        rgba(10,10,10,.5) 40%,
-        rgba(10,10,10,.95) 100%
-      );
-    }
-    #slide-2 .stat-line {
-      font-size: clamp(36px,9vw,54px);
-      font-weight: 900;
-      color: var(--gold-light);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    /* ══════════════════════
-       SLIDE 3 — MISTAKE
-    ══════════════════════ */
-    #slide-3 {
-      background: var(--navy);
-      justify-content: center;
-    }
-    #slide-3 .slide-bg {
-      background: radial-gradient(ellipse at 65% 35%, rgba(201,168,76,.07) 0%, transparent 65%);
-    }
-    #slide-3 .slide-overlay { background: none; }
-
-    .mistake-block {
-      position: relative; z-index: 2; width: 100%;
-    }
-    .mistake-row {
-      display: flex;
-      gap: clamp(8px,2vw,12px);
-      align-items: flex-start;
-      margin-bottom: clamp(12px,3vw,18px);
-    }
-    .mistake-icon {
-      width: clamp(28px,7vw,36px);
-      height: clamp(28px,7vw,36px);
-      min-width: clamp(28px,7vw,36px);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: clamp(13px,3.5vw,16px);
-      font-weight: 800;
-    }
-    .mistake-icon.bad  { background: rgba(220,60,60,.12); border: 1.5px solid rgba(220,60,60,.3); color: #E05555; }
-    .mistake-icon.good { background: rgba(201,168,76,.12); border: 1.5px solid rgba(201,168,76,.3); color: var(--gold); }
-    .mistake-text {
-      font-size: clamp(12px,3vw,14px);
-      line-height: 1.55;
-      color: rgba(245,240,232,.78);
-    }
-    .mistake-text strong { color: var(--white); display: block; margin-bottom: 2px; font-size: clamp(13px,3.2vw,15px); }
-
-    /* ══════════════════════
-       SLIDE 4 — FIRST LESSON
-    ══════════════════════ */
-    #slide-4 .slide-bg {
-      background-image: url('images/lessons.jpeg');
-      background-position: center 15%;
-      filter: brightness(.8);
-    }
-    #slide-4 .slide-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(10,10,10,.15) 0%,
-        rgba(10,10,10,.6) 45%,
-        rgba(10,10,10,.97) 100%
-      );
-    }
-    #slide-4 .lesson-steps {
-      display: flex;
-      gap: clamp(6px,1.5vw,10px);
-      margin-bottom: clamp(10px,2.5vw,14px);
-      align-items: center;
-    }
-    #slide-4 .step-chip {
-      background: rgba(201,168,76,.15);
-      border: 1px solid rgba(201,168,76,.3);
-      color: var(--gold-light);
-      font-size: clamp(10px,2.5vw,12px);
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    #slide-4 .step-arrow {
-      color: rgba(201,168,76,.4);
-      font-size: 12px;
-    }
-
-    /* ══════════════════════
-       SLIDE 5 — PUNCH
-    ══════════════════════ */
-    #slide-5 {
-      background: var(--black);
-      justify-content: center;
-      align-items: center;
-    }
-    #slide-5 .slide-bg {
-      background: radial-gradient(ellipse at 40% 55%, rgba(13,27,42,.7) 0%, var(--black) 65%);
-    }
-    #slide-5 .slide-overlay { background: none; }
-
-    .punch-block {
-      position: relative; z-index: 2;
-      text-align: center;
-      padding: clamp(10px,3vw,20px);
-      width: 100%;
-    }
-    .punch-block .punch-label {
-      font-size: clamp(9px,2vw,11px);
-      letter-spacing: 4px;
-      color: var(--gold-dim);
-      text-transform: uppercase;
-      margin-bottom: clamp(12px,3vw,16px);
-    }
-    .punch-block .punch-main {
-      font-size: clamp(20px,5.5vw,28px);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.25;
-      margin-bottom: 0;
-    }
-    .punch-block .punch-main .gold-word {
-      color: var(--gold-light);
-    }
-    .punch-divider {
-      width: 36px; height: 2px;
-      background: var(--gold);
-      margin: clamp(12px,3vw,16px) auto;
-      border-radius: 2px;
-    }
-    .punch-block .punch-sub {
-      font-size: clamp(12px,3vw,14px);
-      color: rgba(245,240,232,.6);
-      line-height: 1.7;
-    }
-
-    /* ══════════════════════
-       SLIDE 6 — CTA
-    ══════════════════════ */
-    #slide-6 {
-      background: var(--black);
-      justify-content: center;
-      align-items: center;
-    }
-    #slide-6 .slide-bg {
-      background-image: url('images/logo.jpeg');
-      background-size: cover;
-      background-position: center;
-      opacity: .14;
-    }
-    #slide-6 .slide-overlay { background: rgba(8,8,8,.5); }
-
-    .cta-block {
-      position: relative; z-index: 2;
-      text-align: center;
-      width: 100%;
-      padding: clamp(8px,2vw,16px);
-    }
-    .cta-block .cta-brand {
-      font-size: clamp(9px,2vw,11px);
-      letter-spacing: 5px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: clamp(12px,3vw,16px);
-    }
-    .cta-block .cta-big {
-      font-size: clamp(28px,7vw,38px);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: clamp(6px,1.5vw,10px);
-    }
-    .cta-block .cta-sub {
-      font-size: clamp(12px,3vw,14px);
-      color: rgba(245,240,232,.6);
-      line-height: 1.65;
-      margin-bottom: clamp(16px,4vw,22px);
-    }
-    .cta-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--black);
-      font-size: clamp(13px,3.2vw,15px);
-      font-weight: 800;
-      padding: clamp(10px,2.5vw,14px) clamp(24px,6vw,34px);
-      border-radius: 50px;
-      text-decoration: none;
-      letter-spacing: .5px;
-      box-shadow: 0 6px 28px rgba(201,168,76,.3);
-      animation: pulse-btn 2.5s ease-in-out infinite;
-    }
-    @keyframes pulse-btn {
-      0%,100% { box-shadow: 0 6px 28px rgba(201,168,76,.3); }
-      50%      { box-shadow: 0 8px 36px rgba(201,168,76,.55); }
-    }
-
-    /* ─── PROGRESS DOTS ─── */
-    .progress-dots {
-      display: flex;
-      gap: 5px;
-      justify-content: center;
-      padding: 14px 0 4px;
-    }
-    .dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: rgba(201,168,76,.2);
-      transition: all .3s ease;
-      cursor: pointer;
-      border: none;
-    }
-    .dot.active {
-      background: var(--gold);
-      width: 20px;
-      border-radius: 3px;
-    }
-
-    /* ─── NAV ROW ─── */
-    .nav-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 4px 28px;
-    }
-    .nav-btn {
-      background: rgba(201,168,76,.07);
-      border: 1px solid rgba(201,168,76,.18);
-      color: var(--gold);
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background .2s;
-      line-height: 1;
-      padding-bottom: 1px;
-    }
-    .nav-btn:hover:not(:disabled) { background: rgba(201,168,76,.16); border-color: var(--gold); }
-    .nav-btn:disabled { opacity: .18; cursor: default; }
-
-    .slide-counter {
-      font-size: 11px;
-      color: rgba(201,168,76,.4);
-      letter-spacing: 2px;
-      font-weight: 300;
-    }
-
-    /* ══════════════════════════════════════════
-       CONTENT GUIDE
-    ══════════════════════════════════════════ */
-    .guide-section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 56px 16px 80px;
-    }
-    .guide-sep {
-      width: 50px; height: 1px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      margin: 0 auto 36px;
-    }
-    .guide-eyebrow {
-      text-align: center;
-      font-size: 10px; letter-spacing: 5px;
-      color: var(--gold-dim); text-transform: uppercase; margin-bottom: 6px;
-    }
-    .guide-h2 {
-      text-align: center;
-      font-size: clamp(18px,5vw,24px); font-weight: 800;
-      color: var(--white); margin-bottom: 44px;
-    }
-
-    .gc {
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(201,168,76,.1);
-      border-radius: 14px;
-      padding: clamp(18px,4vw,26px);
-      margin-bottom: 16px;
-      transition: border-color .2s;
-    }
-    .gc:hover { border-color: rgba(201,168,76,.28); }
-
-    .gc-head {
-      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;
-    }
-    .gc-num {
-      width: 30px; height: 30px; min-width: 30px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold-dim);
-      color: var(--gold);
-      font-size: 12px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .gc-eyebrow {
-      font-size: 9px; letter-spacing: 3px;
-      color: var(--gold-dim); text-transform: uppercase; margin-bottom: 2px;
-    }
-    .gc-title { font-size: 16px; font-weight: 800; color: var(--white); }
-
-    .gc-body { padding-right: 42px; }
-    .gc-body p {
-      font-size: 13.5px; line-height: 1.7;
-      color: rgba(245,240,232,.68); margin-bottom: 8px;
-    }
-    .gc-body .mt { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-    .gc-body .st { font-size: 13.5px; color: rgba(245,240,232,.58); }
-
-    .vbox {
-      background: rgba(201,168,76,.05);
-      border: 1px solid rgba(201,168,76,.12);
-      border-radius: 9px;
-      padding: 12px 14px;
-      margin-top: 10px;
-    }
-    .vbox-label {
-      font-size: 9px; letter-spacing: 3px;
-      color: var(--gold-dim); text-transform: uppercase; margin-bottom: 5px;
-    }
-    .vbox p { font-size: 12.5px; color: rgba(245,240,232,.6); margin: 0; line-height: 1.55; }
-
-    .gc-body ul { list-style: none; padding: 0; }
-    .gc-body ul li {
-      font-size: 13px; color: rgba(245,240,232,.7);
-      line-height: 1.6; padding: 5px 0;
-      border-bottom: 1px solid rgba(255,255,255,.04);
-      display: flex; gap: 8px;
-    }
-    .gc-body ul li::before { content:'›'; color:var(--gold); font-weight:700; flex-shrink:0; }
-
-    .g2 {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px;
-    }
-    @media(max-width:520px){ .g2 { grid-template-columns: 1fr; } }
-    .gbox {
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: 9px; padding: 12px;
-    }
-    .gbox-label { font-size: 9px; letter-spacing: 2px; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 7px; }
-    .gbox p { font-size: 12px; color: rgba(245,240,232,.6); line-height: 1.5; margin: 0; }
-
-    .caption-box {
-      background: rgba(13,27,42,.6);
-      border: 1px solid rgba(201,168,76,.18);
-      border-radius: 12px; padding: 18px 18px 14px; margin-top: 8px;
-    }
-    .caption-box .cb-label {
-      font-size: 9px; letter-spacing: 3px;
-      color: var(--gold-dim); text-transform: uppercase; margin-bottom: 10px;
-    }
-    .caption-box p {
-      font-size: 13.5px; line-height: 1.75;
-      color: rgba(245,240,232,.78); white-space: pre-line; margin: 0;
-    }
-
-    .alt-list { }
-    .alt-item {
-      display: flex; gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,.04);
-      align-items: flex-start;
-    }
-    .alt-num {
-      color: var(--gold); font-size: 11px; font-weight: 700; min-width: 14px; margin-top: 1px;
-    }
-    .alt-item span { font-size: 13px; color: rgba(245,240,232,.72); line-height: 1.55; }
-
-    .tag-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
-    .tag {
-      background: rgba(201,168,76,.07);
-      border: 1px solid rgba(201,168,76,.18);
-      color: var(--gold-light);
-      border-radius: 20px; padding: 4px 11px; font-size: 11.5px;
-    }
-
-    .music-row {
-      display: flex; gap: 12px; align-items: flex-start;
-      padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.04);
-    }
-    .music-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
-    .music-text { font-size: 13px; color: rgba(245,240,232,.7); line-height: 1.55; }
-    .music-text strong { color: var(--white); display: block; margin-bottom: 1px; }
-
-    .reels-card {
-      background: rgba(13,27,42,.6);
-      border: 1px solid rgba(201,168,76,.2);
-      border-radius: 12px; padding: 18px 18px 14px; margin-top: 8px;
-    }
-    .reel-step {
-      display: flex; gap: 12px; padding: 9px 0;
-      border-bottom: 1px solid rgba(255,255,255,.04);
-      align-items: flex-start;
-    }
-    .reel-step:last-child { border-bottom: none; }
-    .reel-n {
-      width: 22px; height: 22px; min-width: 22px;
-      background: rgba(201,168,76,.1);
-      border: 1px solid var(--gold-dim); border-radius: 50%;
-      color: var(--gold); font-size: 11px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .reel-t { font-size: 12.5px; color: rgba(245,240,232,.68); line-height: 1.55; }
-    .reel-t strong { color: var(--white); font-weight: 700; }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="page-header">
-  <img src="images/logo.jpeg" alt="Darbuka by ALBO" class="brand-logo" />
-  <h1>Darbuka by ALBO</h1>
-  <p>Instagram / Facebook / TikTok — קרוסלה מקצועית</p>
-</header>
-
-<!-- CAROUSEL -->
-<section class="carousel-section">
-  <div class="carousel-frame">
-
-    <div class="slides-track">
-      <div class="slides-inner" id="slidesInner">
-
-        <!-- ══ SLIDE 1 — HOOK ══ -->
-        <div class="slide active" id="slide-1">
-          <div class="slide-bg"></div>
-          <div class="slide-overlay"></div>
-          <div class="slide-num">01 / 06</div>
-          <div class="slide-content">
-            <span class="slide-tag">🥁 Darbuka by ALBO</span>
-            <h2 class="slide-headline">
-              אתה כבר מרגיש<br/>
-              את הקצב.<br/>
-              <span class="gold">תמיד הרגשת.</span>
-            </h2>
-            <p class="slide-body">הבעיה היא שאף אחד לא לימד אותך מה לעשות עם זה.</p>
-            <div class="swipe-hint">גלול וראה <span>←</span></div>
-          </div>
-        </div>
-
-        <!-- ══ SLIDE 2 — SOCIAL PROOF ══ -->
-        <div class="slide" id="slide-2">
-          <div class="slide-bg"></div>
-          <div class="slide-overlay"></div>
-          <div class="slide-num">02 / 06</div>
-          <div class="slide-content">
-            <span class="slide-tag">📊 בפחות משנתיים</span>
-            <p class="stat-line">200+</p>
-            <h2 class="slide-headline">תלמידים לימדתי.<br/>מתחילים מוחלטים.</h2>
-            <p class="slide-body">
-              אנשים שאמרו "אין לי אוזן מוזיקלית",<br/>
-              שאמרו "אני לא מוזיקלי" —<br/>
-              כולם ניגנו קצב שלם בשיעור הראשון.
-            </p>
-          </div>
-        </div>
-
-        <!-- ══ SLIDE 3 — MISTAKE ══ -->
-        <div class="slide" id="slide-3">
-          <div class="slide-bg"></div>
-          <div class="slide-num">03 / 06</div>
-          <div class="slide-content mistake-block">
-            <span class="slide-tag">⚠️ הטעות שמחזיקה אותך במקום</span>
-            <div class="mistake-row">
-              <div class="mistake-icon bad">✗</div>
-              <div class="mistake-text">
-                <strong>ללמוד מיוטיוב לבד</strong>
-                חודשים של ניסיון — אתה עדיין תקוע. בלי תיקון אתה מחזק הרגלים רעים בלי להבין.
-              </div>
-            </div>
-            <div class="mistake-row">
-              <div class="mistake-icon good">✓</div>
-              <div class="mistake-text">
-                <strong>מורה שרואה אותך ומתקן בזמן אמת</strong>
-                שבועות ספורים ותרגיש את ההבדל בידיים. זה לא קסם — זה הדרך הנכונה.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ══ SLIDE 4 — FIRST LESSON MOMENT ══ -->
-        <div class="slide" id="slide-4">
-          <div class="slide-bg"></div>
-          <div class="slide-overlay"></div>
-          <div class="slide-num">04 / 06</div>
-          <div class="slide-content">
-            <span class="slide-tag">🎯 שיעור ראשון</span>
-            <div class="lesson-steps">
-              <span class="step-chip">60 דקות</span>
-              <span class="step-arrow">←</span>
-              <span class="step-chip">קצב שלם</span>
-              <span class="step-arrow">←</span>
-              <span class="step-chip">"אני יכול"</span>
-            </div>
-            <h2 class="slide-headline">
-              בסוף השיעור הראשון<br/>
-              <span class="gold">אתה מנגן.</span>
-            </h2>
-            <p class="slide-body">
-              לא שבוע אחרי. לא חודש אחרי.<br/>
-              <strong>היום.</strong><br/>
-              וברגע שזה קורה — אתה מבין שזה אפשרי.
-            </p>
-          </div>
-        </div>
-
-        <!-- ══ SLIDE 5 — PUNCH ══ -->
-        <div class="slide" id="slide-5">
-          <div class="slide-bg"></div>
-          <div class="slide-num">05 / 06</div>
-          <div class="punch-block">
-            <p class="punch-label">תובנה</p>
-            <p class="punch-main">
-              דרבוקה היא לא<br/>
-              <span class="gold-word">סתם עוד כלי.</span>
-            </p>
-            <div class="punch-divider"></div>
-            <p class="punch-sub">
-              היא כרטיס כניסה לעולם הקצב —<br/>
-              לשמח אנשים בחתונות, אירועים והופעות.<br/>
-              להיות החלק שכולם מחכים לו.
-            </p>
-          </div>
-        </div>
-
-        <!-- ══ SLIDE 6 — CTA ══ -->
-        <div class="slide" id="slide-6">
-          <div class="slide-bg"></div>
-          <div class="slide-overlay"></div>
-          <div class="slide-num">06 / 06</div>
-          <div class="cta-block">
-            <p class="cta-brand">Darbuka by ALBO</p>
-            <h2 class="cta-big">מוכן<br/>להתחיל?</h2>
-            <p class="cta-sub">
-              שלח לי הודעה עכשיו.<br/>
-              ונבנה ביחד את הנגן שתמיד רצית להיות.
-            </p>
-            <a href="#" class="cta-btn">שלח הודעה ←</a>
-          </div>
-        </div>
-
-      </div><!-- /slides-inner -->
-    </div><!-- /slides-track -->
-
-    <!-- Dots -->
-    <div class="progress-dots" id="progressDots"></div>
-
-    <!-- Nav -->
-    <div class="nav-row">
-      <button class="nav-btn" id="prevBtn" aria-label="הקודם">›</button>
-      <span class="slide-counter" id="slideCounter">1 / 6</span>
-      <button class="nav-btn" id="nextBtn" aria-label="הבא">‹</button>
-    </div>
-
-  </div><!-- /carousel-frame -->
-</section><!-- /carousel-section -->
-
-
-<!-- ════════════════════════════
-     CONTENT GUIDE
-════════════════════════════ -->
-<section class="guide-section">
-  <div class="guide-sep"></div>
-  <p class="guide-eyebrow">מדריך תוכן מלא</p>
-  <h2 class="guide-h2">כל מה שצריך כדי להעלות את הפוסט</h2>
-
-  <!-- 1 -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num">1</div>
-      <div>
-        <div class="gc-eyebrow">שקופית 1 — Hook</div>
-        <div class="gc-title">עצירת גלילה — יהב רובין סטייל</div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">DARBUKA <span>by ALBO</span></a>
+      <div class="nav-links">
+        <a href="#about">אודות</a>
+        <a href="#learn">מה לומדים</a>
+        <a href="lead-magnet.html">מדריך חינם</a>
+        <a href="trial.html" class="btn-nav">שיעור ניסיון</a>
       </div>
     </div>
-    <div class="gc-body">
-      <p class="mt">אתה כבר מרגיש את הקצב. תמיד הרגשת.</p>
-      <p class="st">הבעיה היא שאף אחד לא לימד אותך מה לעשות עם זה.</p>
-      <div class="vbox">
-        <div class="vbox-label">למה זה עובד — עקרונות פסיכולוגיים</div>
-        <p>• <strong>זיהוי עצמי (Identity Anchor):</strong> "אתה כבר מרגיש" — מציב את הקורא כמי שכבר שייך<br/>
-           • <strong>אישור + פנייה (Validation):</strong> "תמיד הרגשת" — יוצר רזוננס רגשי מיידי<br/>
-           • <strong>פרם הבעיה (Problem Frame):</strong> השורה האחרונה מסבירה למה הם עוד לא שם — מבלי להאשים אותם</p>
-      </div>
-      <div class="vbox" style="margin-top:8px">
-        <div class="vbox-label">רעיון ויזואלי</div>
-        <p>תמונת ההופעה עם הקהל — אתה מעל כולם, אנרגיה פיזית מלאה. הטקסט לבן, גדול, תחתון. Overlay כהה מלמטה.</p>
-      </div>
-    </div>
-  </div>
+  </nav>
 
-  <!-- 2 -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num">2</div>
-      <div>
-        <div class="gc-eyebrow">שקופית 2 — Social Proof</div>
-        <div class="gc-title">מספרים אמיתיים שלך</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <p class="mt">200+ תלמידים. בפחות משנתיים.</p>
-      <p class="st">אנשים שאמרו "אין לי אוזן מוזיקלית" — כולם ניגנו קצב שלם בשיעור הראשון.</p>
-      <div class="vbox">
-        <div class="vbox-label">רעיון ויזואלי</div>
-        <p>הצילום האמנותי במדבר — אתה לבד עם הדרבוקה, נוף פתוח, תחושה אייקונית. "200+" בזהב גדול מאוד בחלק העליון. מרגיש כמו הצהרה.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3 -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num">3</div>
-      <div>
-        <div class="gc-eyebrow">שקופית 3 — ערך</div>
-        <div class="gc-title">הטעות שמחזיקה אותך במקום</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <ul>
-        <li><strong>✗ יוטיוב לבד:</strong> חודשים של ניסיון, אתה עדיין תקוע. בלי תיקון אתה מחזק הרגלים רעים בלי להבין.</li>
-        <li><strong>✓ מורה שרואה ומתקן בזמן אמת:</strong> שבועות ספורים ותרגיש את ההבדל בידיים. לא קסם — דרך נכונה.</li>
-      </ul>
-      <div class="vbox">
-        <div class="vbox-label">רעיון ויזואלי</div>
-        <p>רקע Navy כהה נקי + Glow עגול בזהב מאחורה. שתי שורות ברורות: ✗ אדום עמום / ✓ זהב בהיר. ללא תמונה — הטקסט הוא הכוכב.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4 -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num">4</div>
-      <div>
-        <div class="gc-eyebrow">שקופית 4 — רגש</div>
-        <div class="gc-title">הרגע שמשנה הכל — שיעור ראשון</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <p class="mt">בסוף השיעור הראשון — אתה מנגן.</p>
-      <p class="st">לא שבוע אחרי. לא חודש אחרי. היום. וברגע שזה קורה — אתה מבין שזה אפשרי.</p>
-      <div class="vbox">
-        <div class="vbox-label">למה זה עובד</div>
-        <p>Future Pacing — הקורא מדמיין את עצמו כבר מנגן. "היום" יוצר דחיפות. "אתה מבין שזה אפשרי" — שובר את חוסר האמונה העיקרי.</p>
-      </div>
-      <div class="vbox" style="margin-top:8px">
-        <div class="vbox-label">רעיון ויזואלי</div>
-        <p>תמונת שיעורים (Darbuka lesson) — מרגיש אינטימי ואמיתי. Chips קטנים: "60 דקות ← קצב שלם ← אני יכול". מעביר journey בשורה אחת.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5 -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num">5</div>
-      <div>
-        <div class="gc-eyebrow">שקופית 5 — Punch</div>
-        <div class="gc-title">הציטוט שנשמר</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <p class="mt">דרבוקה היא לא סתם עוד כלי.</p>
-      <p class="st">היא כרטיס כניסה לעולם הקצב — לשמח אנשים בחתונות, אירועים והופעות. להיות החלק שכולם מחכים לו.</p>
-      <div class="vbox">
-        <div class="vbox-label">רעיון ויזואלי</div>
-        <p>שחור מלא. טקסט לבן + זהב, גדול, מרכזי. מינימליסטי לחלוטין — כמו פוסטר. קו זהב בין הציטוט לסאב-טייטל. אין תמונה.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 6 -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num">6</div>
-      <div>
-        <div class="gc-eyebrow">שקופית 6 — CTA</div>
-        <div class="gc-title">קריאה לפעולה</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <p class="mt">מוכן להתחיל?</p>
-      <p class="st">שלח לי הודעה עכשיו. ונבנה ביחד את הנגן שתמיד רצית להיות.</p>
-      <div class="vbox">
-        <div class="vbox-label">רעיון ויזואלי</div>
-        <p>לוגו Darbuka by ALBO על רקע שחור, Opacity נמוך. שם המותג בזהב קטן. כפתור זהב מוצק + Pulse אנימציה. נקי, יוקרתי, ברור.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- DESIGN -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num" style="background:rgba(201,168,76,.1)">✦</div>
-      <div>
-        <div class="gc-eyebrow">עיצוב</div>
-        <div class="gc-title">הנחיות עיצוב מלאות</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <div class="g2">
-        <div class="gbox"><div class="gbox-label">צבעים</div><p>שחור #0A0A0A · Navy #0D1B2A · זהב #C9A84C · זהב בהיר #E8CC7A · לבן חם #F5F0E8</p></div>
-        <div class="gbox"><div class="gbox-label">פונטים</div><p>Heebo 900 לכותרות · Heebo 400 לגוף · Heebo 300 לפרטים</p></div>
-        <div class="gbox"><div class="gbox-label">פורמט</div><p>1:1 ריבועי 1080×1080 לאינסטגרם · 4:5 לפייסבוק</p></div>
-        <div class="gbox"><div class="gbox-label">Overlay</div><p>Gradient כהה מלמטה 70–96%. פנים ועיניים — תמיד גלויים.</p></div>
-        <div class="gbox"><div class="gbox-label">תמונות</div><p>שקופית 1: הופעה עם קהל · 2: מדבר · 4: שיעורים · 6: לוגו</p></div>
-        <div class="gbox"><div class="gbox-label">Spacing</div><p>Padding: 32px. טקסט: max 70% מהשקופית. שוליים: 12–16px.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ANIMATIONS -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num" style="background:rgba(201,168,76,.1)">▶</div>
-      <div>
-        <div class="gc-eyebrow">אנימציות</div>
-        <div class="gc-title">מעברים ותנועה</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <ul>
-        <li><strong>מעבר בין שקופיות:</strong> Slide אופקי חלק 0.5s ease-in-out — כמו Instagram native</li>
-        <li><strong>כניסת טקסט:</strong> Fade-up (Y+10px→0, opacity 0→1) עם delay 0.1s לכל אלמנט</li>
-        <li><strong>רקע תמונות:</strong> Ken Burns — Scale 100%→104%, 7 שניות</li>
-        <li><strong>שקופית 5 (Punch):</strong> Scale 0.92→1 + Fade-in — תחושת כבדות ועוצמה</li>
-        <li><strong>כפתור CTA:</strong> Pulse עדין (box-shadow) כל 2.5 שניות</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CAPTION -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num" style="background:rgba(201,168,76,.1)">✍</div>
-      <div>
-        <div class="gc-eyebrow">Caption לפוסט</div>
-        <div class="gc-title">העתק-הדבק מוכן</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <div class="caption-box">
-        <div class="cb-label">Caption מלא</div>
-        <p>🥁 אם אתה מרגיש את הקצב — הפוסט הזה בשבילך.
-
-לא צריך ניסיון. לא צריך כישרון מולד.
-צריך רק להתחיל עם מישהו שיוביל אותך נכון.
-
-אני אליה אלבו — נגן דרבוקה מקצועי ומורה.
-לימדתי יותר מ-200 תלמידים בפחות משנתיים.
-מתחילים מוחלטים. כולם ניגנו קצב שלם — בשיעור הראשון.
-
-שיעורים פרטיים | פרונטלי ואונליין 💬
-
-💬 שלח לי הודעה ונתחיל 🔥
-
-#דרבוקה #לימודידרבוקה #darbukabyalbo</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ENGAGEMENT CTA -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num" style="background:rgba(201,168,76,.1)">💬</div>
-      <div>
-        <div class="gc-eyebrow">מעורבות</div>
-        <div class="gc-title">CTA לתגובות — בחר אחד</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <ul>
-        <li>כתוב <strong>"🥁"</strong> בתגובות ואני אשלח לך את לוח הזמנים שלי</li>
-        <li>כמה זמן חשבת על ללמוד דרבוקה לפני שהתחלת? כתוב בתגובות 👇</li>
-        <li>תייג חבר שתמיד אמר שיום אחד ילמד לנגן 🎵</li>
-        <li>אם הגעת לשקופית האחרונה — אתה כבר יודע שאתה רוצה. שלח הודעה.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ALT HOOKS -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num" style="background:rgba(201,168,76,.1)">⚡</div>
-      <div>
-        <div class="gc-eyebrow">5 כותרות חלופיות</div>
-        <div class="gc-title">Hook ראשון — A/B Test</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <div class="alt-list">
-        <div class="alt-item"><div class="alt-num">1</div><span>השיעור הראשון שלך מסתיים עם קצב שלם שאתה מנגן לבד. לא ב-3 שבועות. היום.</span></div>
-        <div class="alt-item"><div class="alt-num">2</div><span>בן 13 התחיל אצלי. בן 16 ניגן חתונה. זה לא מזל — זה מה שקורה כשמלמדים נכון.</span></div>
-        <div class="alt-item"><div class="alt-num">3</div><span>אם אתה מוצא את עצמך מקיש על השולחן בלי להבין למה — קרא עד הסוף.</span></div>
-        <div class="alt-item"><div class="alt-num">4</div><span>200 תלמידים לימדתי. כולם אמרו "אני לא מוזיקלי". כולם ניגנו.</span></div>
-        <div class="alt-item"><div class="alt-num">5</div><span>אנשים שואלים אותי "כמה זמן לוקח ללמוד דרבוקה?" — אני אמיר להם תמיד אותו דבר.</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MUSIC -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num" style="background:rgba(201,168,76,.1)">🎵</div>
-      <div>
-        <div class="gc-eyebrow">מוזיקה</div>
-        <div class="gc-title">מוזיקת רקע מומלצת</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <div class="music-row"><div class="music-icon">🥁</div><div class="music-text"><strong>אפשרות 1 — הכי חזקה</strong>Solo דרבוקה שלך עצמך — ריתמוס נקי ואנרגטי. מחבר למותג ומוסיף אותנטיות שאי אפשר לזייף.</div></div>
-      <div class="music-row"><div class="music-icon">🎶</div><div class="music-text"><strong>אפשרות 2 — Oriental Cinematic</strong>מוזיקה אוריינטלית מינימלית + דרבוקה רקע. חפש TikTok Sound: "oriental darbuka loop".</div></div>
-      <div class="music-row"><div class="music-icon">✨</div><div class="music-text"><strong>אפשרות 3 — Trap + Oriental Fusion</strong>Beat מודרני עם בסיס דרבוקה. אפקטיבי לקהל 13–25, מרגיש רלוונטי לטיקטוק.</div></div>
-    </div>
-  </div>
-
-  <!-- HASHTAGS -->
-  <div class="gc">
-    <div class="gc-head">
-      <div class="gc-num" style="background:rgba(201,168,76,.1)">#</div>
-      <div>
-        <div class="gc-eyebrow">Hashtags</div>
-        <div class="gc-title">תגיות מוכנות</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <div class="tag-grid">
-        <span class="tag">#דרבוקה</span><span class="tag">#לימודידרבוקה</span>
-        <span class="tag">#נגןדרבוקה</span><span class="tag">#darbukabyalbo</span>
-        <span class="tag">#darbuka</span><span class="tag">#מוזיקהישראלית</span>
-        <span class="tag">#שיעורימוזיקה</span><span class="tag">#חפלה</span>
-        <span class="tag">#אירועים</span><span class="tag">#נגינה</span>
-        <span class="tag">#מוזיקה</span><span class="tag">#orientalmusic</span>
-        <span class="tag">#percussionist</span><span class="tag">#drumlesson</span>
-        <span class="tag">#musiclesson</span><span class="tag">#תופים</span>
-        <span class="tag">#ריתמוס</span><span class="tag">#אלבו</span>
-        <span class="tag">#albo</span><span class="tag">#מורהלמוזיקה</span>
-        <span class="tag">#חתונה</span><span class="tag">#wedding</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- REELS -->
-  <div class="gc" style="border-color:rgba(201,168,76,.28)">
-    <div class="gc-head">
-      <div class="gc-num" style="background:linear-gradient(135deg,#C9A84C,#8A6B2E);border:none;color:#000">▷</div>
-      <div>
-        <div class="gc-eyebrow">בונוס</div>
-        <div class="gc-title">איך הופכים את זה לרילס קצר?</div>
-      </div>
-    </div>
-    <div class="gc-body">
-      <div class="reels-card">
-        <div class="reel-step"><div class="reel-n">1</div><div class="reel-t"><strong>0–2 שניות — Pattern Interrupt ויזואלי:</strong> Cut מהיר לרגע הכי אנרגטי בהופעה. ללא טקסט — רק תמונה ומוזיקה.</div></div>
-        <div class="reel-step"><div class="reel-n">2</div><div class="reel-t"><strong>2–4 שניות — Hook:</strong> Text Overlay: "אתה כבר מרגיש את הקצב. תמיד הרגשת." — לבן, גדול, מרכז.</div></div>
-        <div class="reel-step"><div class="reel-n">3</div><div class="reel-t"><strong>4–12 שניות — ערך מהיר:</strong> ✗ יוטיוב → ✓ שיעור נכון → ✓ קצב שלם בשיעור ראשון. כל Cut 2–3 שניות.</div></div>
-        <div class="reel-step"><div class="reel-n">4</div><div class="reel-t"><strong>12–17 שניות — Punch:</strong> מסך שחור. "דרבוקה היא לא סתם עוד כלי." — זהב, גדול, 3 שניות עצירה.</div></div>
-        <div class="reel-step"><div class="reel-n">5</div><div class="reel-t"><strong>17–22 שניות — CTA:</strong> צילום שלך מחייך עם הדרבוקה. "שלח DM ונתחיל 🔥" + לוגו. Fade לשחור.</div></div>
-      </div>
-      <p style="margin-top:12px;font-size:12px;color:rgba(245,240,232,.45);">
-        טיפ: העלה את הרילס 24–48 שעות לפני הקרוסלה — ייצר טראפיק לפרופיל והפוסט יקבל חשיפה כפולה.
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-label">🥁 Darbuka by ALBO</div>
+      <h1 class="hero-title">
+        לנגן דרבוקה<br />
+        <span class="gold">ברמה שמדברת בעד עצמה.</span>
+      </h1>
+      <p class="hero-sub">
+        שיעורי דרבוקה מקצועיים — פרטי, אונליין, קורס דיגיטלי.<br />
+        מתאים לכל רמה. תוצאות כבר מהשיעור הראשון.
       </p>
+      <div class="hero-ctas">
+        <a href="trial.html" class="btn-primary">קבל שיעור ניסיון חינם ←</a>
+        <a href="lead-magnet.html" class="btn-ghost">הורד מדריך חינם</a>
+      </div>
+      <div class="hero-trust">
+        <span>⭐ 100% מקצועי</span>
+        <span>🎯 תוצאות מהיום הראשון</span>
+        <span>🎵 Premium Musical Experience</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-</section>
+  <section class="proof-bar">
+    <div class="container proof-bar-inner">
+      <div class="proof-item"><strong>500+</strong><span>תלמידים</span></div>
+      <div class="proof-divider"></div>
+      <div class="proof-item"><strong>8+</strong><span>שנות ניסיון</span></div>
+      <div class="proof-divider"></div>
+      <div class="proof-item"><strong>200+</strong><span>הופעות</span></div>
+      <div class="proof-divider"></div>
+      <div class="proof-item"><strong>Online</strong><span>בכל מקום בעולם</span></div>
+    </div>
+  </section>
 
-<footer style="text-align:center;padding:28px 20px 48px;border-top:1px solid rgba(201,168,76,.06)">
-  <img src="images/logo.jpeg" alt="Darbuka by ALBO" style="width:54px;border-radius:50%;border:1.5px solid rgba(201,168,76,.25);margin-bottom:10px;object-fit:cover" />
-  <p style="font-size:10px;letter-spacing:4px;color:rgba(201,168,76,.35);text-transform:uppercase">Darbuka by ALBO © 2025</p>
-</footer>
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-text">
+        <div class="section-label">מי אני</div>
+        <h2>אליה אלבו.<br /><span class="gold">נגן. פרפורמר. מורה.</span></h2>
+        <p>אני לא רק מורה — אני נגן דרבוקה מקצועי שמופיע באירועים, מלווה זמרים ולהקות ומביא אנרגית במה אמיתית לכל שיעור.</p>
+        <p>כשאתה לומד איתי, אתה לא "מעתיק תנועות" — אתה מבין מוזיקה. מרגיש קצב. מנגן.</p>
+        <ul class="about-list">
+          <li><span class="check">✓</span> הופעות באירועים עם ציוד במה מקצועי</li>
+          <li><span class="check">✓</span> ליווי זמרים ולהקות ברמה גבוהה</li>
+          <li><span class="check">✓</span> מערכת אלחוטית + חיבור ישיר להגברה</li>
+          <li><span class="check">✓</span> שיעורי אונליין לכל מקום בעולם</li>
+          <li><span class="check">✓</span> קורס דיגיטלי מקצועי בבנייה</li>
+        </ul>
+        <a href="trial.html" class="btn-primary">התחל עכשיו ←</a>
+      </div>
+      <div class="about-visual">
+        <div class="about-card"><div class="about-card-icon">🥁</div><p class="about-card-title">Premium &amp; Powerful</p><p class="about-card-sub">ציוד מקצועי. קול נקי. אנרגיה שתרגיש בקרביים.</p></div>
+        <div class="about-card about-card-2"><div class="about-card-icon">🎵</div><p class="about-card-title">Musical, Not Mechanical</p><p class="about-card-sub">לומדים להבין מוזיקה — לא רק לחקות.</p></div>
+        <div class="about-card about-card-3"><div class="about-card-icon">🌍</div><p class="about-card-title">International Brand</p><p class="about-card-sub">סגנון מודרני. נוכחות גלובלית. רמה בינלאומית.</p></div>
+      </div>
+    </div>
+  </section>
 
+  <section class="learn" id="learn">
+    <div class="container">
+      <div class="section-label">מה לומדים</div>
+      <h2>מהריתמוס הראשון <span class="gold">ועד הסולו המלא.</span></h2>
+      <div class="learn-grid">
+        <div class="learn-card"><div class="learn-num">01</div><h3>בסיס חזק</h3><p>טכניקה נכונה, אחיזה, טון — הבסיס שיחסוך לך שנים של הרגלים גרועים.</p></div>
+        <div class="learn-card"><div class="learn-num">02</div><h3>מקצבים מזרחיים</h3><p>מקצבים קלאסיים ומודרניים — מזפין, ואחדה, מקסום, ועוד.</p></div>
+        <div class="learn-card"><div class="learn-num">03</div><h3>גרוב ופיתוח קצב</h3><p>לא רק לנגן נכון — לנגן בתחושה. להרגיש את המוזיקה מבפנים.</p></div>
+        <div class="learn-card"><div class="learn-num">04</div><h3>עבודה עם שירים</h3><p>ליווי עצמי ועבודה על שירים אמיתיים — כי זה מה שמרגיש כיף.</p></div>
+        <div class="learn-card"><div class="learn-num">05</div><h3>טכניקות מתקדמות</h3><p>ריטפיל, פירות, פלאמס — כלים שיפתחו לך עולם שלם.</p></div>
+        <div class="learn-card"><div class="learn-num">06</div><h3>סולואים והופעה</h3><p>לבנות סולו מרשים ולהופיע על הבמה בביטחון מלא.</p></div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const TOTAL = 6;
-  let cur = 0;
+  <section class="magnet-banner">
+    <div class="container magnet-inner">
+      <div class="magnet-text">
+        <div class="section-label white">חינם לגמרי</div>
+        <h2>קבל את המדריך:<br /><span class="gold">"5 ריתמוסים שיעשו אותך מוזיקאי"</span></h2>
+        <p>PDF + וידאו הדגמה. מתאים לגמרי למתחילים. ישר לוואטסאפ.</p>
+      </div>
+      <div class="magnet-cta">
+        <a href="lead-magnet.html" class="btn-primary btn-large">שלח לי עכשיו ←</a>
+        <span class="magnet-note">בחינם. ללא התחייבות.</span>
+      </div>
+    </div>
+  </section>
 
-  const inner   = document.getElementById('slidesInner');
-  const counter = document.getElementById('slideCounter');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const dotsWrap = document.getElementById('progressDots');
-  const slides  = document.querySelectorAll('.slide');
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-label">מה אומרים</div>
+      <h2>תלמידים שדיברו <span class="gold">בשבילנו.</span></h2>
+      <div class="testi-grid">
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"לא האמנתי שאוכל לנגן כבר בשיעור הראשון. אליה מסביר בצורה כל כך ברורה שפשוט הכל מסתדר."</p><div class="testi-name">— דניאל, תל אביב</div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"ניסיתי ללמוד לבד ביוטיוב חצי שנה. אחרי שיעור אחד עם אליה הבנתי מה פספסתי."</p><div class="testi-name">— שי, חיפה</div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"השיעורים האונליין מושלמים. אותה רמה כמו פנים-אל-פנים, עם גמישות מלאה."</p><div class="testi-name">— רביד, ירושלים</div></div>
+      </div>
+    </div>
+  </section>
 
-  /* build dots */
-  const dots = Array.from({ length: TOTAL }, (_, i) => {
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', `שקופית ${i + 1}`);
-    d.addEventListener('click', () => goTo(i));
-    dotsWrap.appendChild(d);
-    return d;
-  });
+  <section class="final-cta">
+    <div class="container">
+      <h2>מוכן להתחיל?</h2>
+      <p>שיעור ניסיון חינם. ללא התחייבות. תוצאות כבר בשיעור הראשון.</p>
+      <div class="final-cta-btns">
+        <a href="trial.html" class="btn-primary btn-large">קבל שיעור ניסיון חינם ←</a>
+        <a href="https://wa.me/972XXXXXXXXX?text=היי אליה, אני רוצה לשמוע עוד על שיעורי הדרבוקה" class="btn-whatsapp" target="_blank">💬 כתוב לי בוואטסאפ</a>
+      </div>
+    </div>
+  </section>
 
-  function goTo(n) {
-    slides[cur].classList.remove('active');
-    cur = Math.max(0, Math.min(TOTAL - 1, n));
-    slides[cur].classList.add('active');
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><span class="logo">DARBUKA <span>by ALBO</span></span><p>נגן. פרפורמר. מורה.</p></div>
+      <div class="footer-links"><a href="index.html">בית</a><a href="lead-magnet.html">מדריך חינם</a><a href="trial.html">שיעור ניסיון</a><a href="funnel-strategy.html">אסטרטגיה</a></div>
+      <div class="footer-social"><a href="#" target="_blank">TikTok</a><a href="#" target="_blank">Instagram</a><a href="#" target="_blank">Facebook</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Darbuka by ALBO | Eliya Albo. כל הזכויות שמורות.</p></div>
+  </footer>
 
-    /* percentage-based transform — works at any width */
-    inner.style.transform = `translateX(calc(-${cur} * 100%))`;
-
-    counter.textContent = `${cur + 1} / ${TOTAL}`;
-    prevBtn.disabled = cur === 0;
-    nextBtn.disabled = cur === TOTAL - 1;
-    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
-  }
-
-  prevBtn.addEventListener('click', () => goTo(cur - 1));
-  nextBtn.addEventListener('click', () => goTo(cur + 1));
-
-  /* touch / swipe */
-  let sx = 0, sy = 0;
-  inner.addEventListener('touchstart', e => {
-    sx = e.touches[0].clientX;
-    sy = e.touches[0].clientY;
-  }, { passive: true });
-  inner.addEventListener('touchend', e => {
-    const dx = sx - e.changedTouches[0].clientX;
-    const dy = sy - e.changedTouches[0].clientY;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 36) {
-      goTo(cur + (dx > 0 ? 1 : -1));
-    }
-  });
-
-  /* keyboard */
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft')  goTo(cur + 1);
-    if (e.key === 'ArrowRight') goTo(cur - 1);
-  });
-
-  goTo(0);
-</script>
 </body>
 </html>
