@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>שיעור ניסיון חינם | Darbuka by ALBO</title>
+  <meta name="description" content="קבל שיעור ניסיון חינם עם אליה אלבו — נגן ומורה דרבוקה מקצועי. פרטי או אונליין." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .trial-page {
+      padding: 120px 0 80px;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%),
+        linear-gradient(160deg, #080810, #0a1628 60%, #080810);
+    }
+    .trial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-top: 20px;
+    }
+    .trial-right h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .trial-steps {
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .trial-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding-bottom: 28px;
+      position: relative;
+    }
+    .trial-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 18px;
+      top: 36px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.4), transparent);
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--gold), #a07828);
+      color: #000;
+      font-weight: 900;
+      font-size: 0.875rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text h4 {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .step-text p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .trial-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-top: 20px;
+    }
+    .trial-guarantee span:first-child { font-size: 1.5rem; }
+    .trial-guarantee p { font-size: 0.875rem; color: rgba(255,255,255,0.7); }
+    .trial-guarantee strong { color: var(--gold); }
+
+    /* Form box */
+    .trial-form-box {
+      background: rgba(13,22,40,0.75);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 24px;
+      padding: 40px 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), var(--gold-glow);
+      position: sticky;
+      top: 100px;
+    }
+    .trial-form-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+    .trial-form-sub {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .radio-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .radio-option {
+      flex: 1;
+      min-width: 120px;
+    }
+    .radio-option input { display: none; }
+    .radio-option label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 10px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+    }
+    .radio-option label span { font-size: 1.4rem; }
+    .radio-option input:checked + label {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+      color: var(--white);
+    }
+    .radio-option label:hover { border-color: rgba(201,168,76,0.4); }
+    .form-submit-full { width: 100%; margin-top: 6px; }
+    @media (max-width: 800px) {
+      .trial-grid { grid-template-columns: 1fr; }
+      .trial-form-box { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">DARBUKA <span>by ALBO</span></a>
+      <div class="nav-links">
+        <a href="lead-magnet.html">מדריך חינם</a>
+        <a href="trial.html" class="btn-nav">שיעור ניסיון</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="trial-page">
+    <div class="container">
+      <div class="section-label" style="margin-bottom:16px;">ללא עלות. ללא התחייבות.</div>
+      <div class="trial-grid">
+
+        <!-- Right: Info -->
+        <div class="trial-right">
+          <h2>
+            שיעור ניסיון חינם —<br />
+            <span class="gold">תרגיש את ההבדל.</span>
+          </h2>
+          <p style="color:rgba(255,255,255,0.65);font-size:1.05rem;margin-bottom:10px;">
+            שיעור ניסיון אחד מספיק כדי להבין למה מאות תלמידים בחרו ב-Darbuka by ALBO.
+          </p>
+
+          <div class="trial-steps">
+            <div class="trial-step">
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <h4>ממלאים את הטופס</h4>
+                <p>שם, טלפון, ורמה נוכחית — זה כל מה שצריך.</p>
+              </div>
+            </div>
+            <div class="trial-step">
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <h4>אליה מתקשר תוך 24 שעות</h4>
+                <p>מתאמים זמן ואופן — פרטי או אונליין, לפי מה שמתאים לך.</p>
+              </div>
+            </div>
+            <div class="trial-step">
+              <div class="step-num">3</div>
+              <div class="step-text">
+                <h4>שיעור ניסיון מלא — חינם</h4>
+                <p>תלמד ריתמוס שלם, תתנסה בטכניקה, ותבין מה קורה בשיעורים.</p>
+              </div>
+            </div>
+            <div class="trial-step">
+              <div class="step-num">4</div>
+              <div class="step-text">
+                <h4>מחליטים ביחד על הדרך הלאה</h4>
+                <p>אין לחץ. אין מכירה קשה. רק שיחה ישרה על מה מתאים לך.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="trial-guarantee">
+            <span>🛡️</span>
+            <p><strong>100% ללא עלות.</strong> השיעור הראשון הוא מתנה ממני אליך. אין חיוב, אין כרטיס אשראי, אין שום מחויבות.</p>
+          </div>
+        </div>
+
+        <!-- Left: Form -->
+        <div class="trial-form-box">
+          <div class="trial-form-title">קבע שיעור ניסיון 🥁</div>
+          <div class="trial-form-sub">ממלאים — ואני חוזר אליך תוך 24 שעות</div>
+
+          <form id="trialForm" onsubmit="submitTrial(event)">
+            <div class="form-group">
+              <label for="tname">שם מלא</label>
+              <input type="text" id="tname" name="name" placeholder="שם פרטי ומשפחה" required />
+            </div>
+            <div class="form-group">
+              <label for="tphone">מספר ווצאפ</label>
+              <input type="tel" id="tphone" name="phone" placeholder="05X-XXXXXXX" required />
+            </div>
+            <div class="form-group">
+              <label>סוג שיעור מועדף</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" name="type" id="inperson" value="פרטי פנים-אל-פנים" />
+                  <label for="inperson"><span>🤝</span>פרטי</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" name="type" id="online" value="אונליין" checked />
+                  <label for="online"><span>💻</span>אונליין</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" name="type" id="both" value="לא משנה" />
+                  <label for="both"><span>🎯</span>לא משנה</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="tlevel">רמה נוכחית</label>
+              <select id="tlevel" name="level">
+                <option value="מתחיל לגמרי">מתחיל לגמרי</option>
+                <option value="ניגנתי קצת">ניגנתי קצת</option>
+                <option value="בינוני">בינוני</option>
+                <option value="מתקדם">מתקדם</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="goal">מה המטרה שלך?</label>
+              <input type="text" id="goal" name="goal" placeholder="לנגן באירוע, לבלות, להפוך מקצועי..." />
+            </div>
+            <button type="submit" class="btn-primary btn-large form-submit-full">
+              שמור לי מקום לשיעור ניסיון ←
+            </button>
+          </form>
+          <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:14px;">
+            🔒 הפרטים שלך שמורים אצלי בלבד.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function submitTrial(e) {
+      e.preventDefault();
+      const name = document.getElementById('tname').value.trim();
+      const phone = document.getElementById('tphone').value.trim();
+      const level = document.getElementById('tlevel').value;
+      const goal = document.getElementById('goal').value.trim();
+      const typeEl = document.querySelector('input[name="type"]:checked');
+      const type = typeEl ? typeEl.value : 'אונליין';
+
+      const cleanPhone = phone.replace(/\D/g, '');
+      const intlPhone = cleanPhone.startsWith('0') ? '972' + cleanPhone.slice(1) : cleanPhone;
+
+      const msg = encodeURIComponent(
+        `היי אליה! 🥁\nקוראים לי ${name} ואני רוצה לקבוע שיעור ניסיון חינם.\n` +
+        `📌 סוג: ${type}\n` +
+        `🎯 רמה: ${level}\n` +
+        `💡 מטרה: ${goal || 'לא ציינתי'}\n\n` +
+        `מתי נוח לך?`
+      );
+
+      const waNumber = '972XXXXXXXXX'; // Replace with Eliya's actual number
+      window.location.href = `https://wa.me/${waNumber}?text=${msg}`;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מדריך חינם | Darbuka by ALBO</title>
+  <meta name="description" content="קבל חינם: 5 ריתמוסים שיעשו אותך מוזיקאי — PDF + וידאו הדגמה מאליה אלבו" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--dark-blue); }
+    .lm-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0 60px;
+      background:
+        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        linear-gradient(135deg, #080810, #0a1628 60%, #0d0d1a);
+    }
+    .lm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .lm-left h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .lm-left p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+    .lm-perks {
+      list-style: none;
+      margin: 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lm-perks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .lm-perk-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .lm-box {
+      background: rgba(13,22,40,0.7);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 24px;
+      padding: 40px 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), var(--gold-glow);
+    }
+    .lm-box-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .lm-box-sub {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .lm-submit {
+      width: 100%;
+      margin-top: 8px;
+    }
+    .lm-privacy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-top: 14px;
+    }
+    .lm-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .lm-badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      gap: 4px;
+    }
+    .lm-badge-item span:first-child { font-size: 1.2rem; }
+    @media (max-width: 800px) {
+      .lm-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">DARBUKA <span>by ALBO</span></a>
+      <a href="trial.html" class="btn-nav">שיעור ניסיון חינם</a>
+    </div>
+  </nav>
+
+  <section class="lm-page">
+    <div class="container">
+      <div class="lm-grid">
+
+        <!-- LEFT: Value Proposition -->
+        <div class="lm-left">
+          <div class="section-label">100% חינם</div>
+          <h1>
+            5 ריתמוסים שיעשו<br />
+            <span class="gold">אותך מוזיקאי.</span>
+          </h1>
+          <p>
+            הורד את המדריך שאליה אלבו — נגן ומורה מקצועי — בנה עבורך.
+            בלי שטויות, בלי "חאפרות". רק מה שעובד.
+          </p>
+          <ul class="lm-perks">
+            <li>
+              <div class="lm-perk-icon">📄</div>
+              <span><strong>PDF מפורט</strong> — כל ריתמוס עם תמלול, הסברים ודגשים</span>
+            </li>
+            <li>
+              <div class="lm-perk-icon">🎥</div>
+              <span><strong>וידאו הדגמה</strong> — רואים איך זה נשמע ומרגיש</span>
+            </li>
+            <li>
+              <div class="lm-perk-icon">⚡</div>
+              <span><strong>תוצאות מהירות</strong> — אפשר להתחיל לנגן כבר היום</span>
+            </li>
+            <li>
+              <div class="lm-perk-icon">🎯</div>
+              <span><strong>מתאים לכל רמה</strong> — גם אם מעולם לא נגעת בדרבוקה</span>
+            </li>
+          </ul>
+          <div style="font-size:0.85rem; color:rgba(255,255,255,0.35);">
+            הצטרפו כבר 500+ נגנים. ישר לוואטסאפ שלך.
+          </div>
+        </div>
+
+        <!-- RIGHT: Opt-in Form -->
+        <div class="lm-box">
+          <div class="lm-box-title">שלחו לי את המדריך 🥁</div>
+          <div class="lm-box-sub">ממלאים ↓ ומקבלים ישר לוואטסאפ</div>
+
+          <form id="leadForm" onsubmit="submitLead(event)">
+            <div class="form-group">
+              <label for="name">שם פרטי</label>
+              <input type="text" id="name" name="name" placeholder="מה שמך?" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">מספר ווצאפ</label>
+              <input type="tel" id="phone" name="phone" placeholder="05X-XXXXXXX" required />
+            </div>
+            <div class="form-group">
+              <label for="level">רמה נוכחית</label>
+              <select id="level" name="level">
+                <option value="">בחר רמה</option>
+                <option value="beginner">מתחיל לגמרי</option>
+                <option value="some">ניגנתי קצת</option>
+                <option value="intermediate">בינוני</option>
+                <option value="advanced">מתקדם</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-primary btn-large lm-submit">
+              שלח לי את המדריך חינם ←
+            </button>
+          </form>
+
+          <p class="lm-privacy">🔒 לא מספאמים. לא מוכרים את הפרטים שלך.</p>
+
+          <div class="lm-badge">
+            <div class="lm-badge-item"><span>⭐</span><span>מקצועי</span></div>
+            <div class="lm-badge-item"><span>🎵</span><span>מוזיקלי</span></div>
+            <div class="lm-badge-item"><span>⚡</span><span>מיידי</span></div>
+            <div class="lm-badge-item"><span>🆓</span><span>חינם</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function submitLead(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      // Clean phone number
+      const cleanPhone = phone.replace(/\D/g, '');
+      const intlPhone = cleanPhone.startsWith('0') ? '972' + cleanPhone.slice(1) : cleanPhone;
+      // Build WhatsApp message
+      const msg = encodeURIComponent(
+        `היי אליה! 🥁\nקוראים לי ${name} ואני רוצה לקבל את המדריך החינמי "5 ריתמוסים שיעשו אותי מוזיקאי".\nתודה!`
+      );
+      // Replace with Eliya's actual WhatsApp number
+      const waNumber = '972XXXXXXXXX';
+      window.location.href = `https://wa.me/${waNumber}?text=${msg}`;
+    }
+  </script>
+
+</body>
+</html>

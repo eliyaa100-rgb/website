@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>אסטרטגיית משפך | Darbuka by ALBO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .strategy-page { padding: 120px 0 80px; }
+    .strategy-toc {
+      background: rgba(13,22,40,0.6);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 60px;
+    }
+    .strategy-toc h3 { font-size: 1rem; color: var(--gold); margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
+    .toc-links { display: flex; flex-direction: column; gap: 8px; }
+    .toc-links a { font-size: 0.9rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
+    .toc-links a:hover { color: var(--gold); }
+
+    .strat-section {
+      margin-bottom: 70px;
+      scroll-margin-top: 90px;
+    }
+    .strat-section h2 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .strat-section h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 28px 0 12px;
+    }
+    .strat-section h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      margin: 20px 0 8px;
+    }
+    .strat-section p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .strat-section ul, .strat-section ol {
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .strat-section li { color: rgba(255,255,255,0.75); font-size: 0.93rem; line-height: 1.7; }
+    .strat-section li strong { color: var(--white); }
+
+    .funnel-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 28px 0;
+    }
+    .funnel-stage {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      background: rgba(13,22,40,0.5);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .funnel-stage:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom: none;
+    }
+    .funnel-stage:not(:first-child) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .funnel-stage-num {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--gold), #a07828);
+      color: #000;
+      font-weight: 900;
+      font-size: 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .funnel-stage-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .funnel-stage-content p { font-size: 0.875rem; color: rgba(255,255,255,0.55); margin: 0; }
+    .funnel-arrow {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.2rem;
+      padding: 6px 0;
+    }
+
+    .wa-message {
+      background: #0b1e0e;
+      border: 1px solid rgba(37,211,102,0.25);
+      border-right: 3px solid #25D366;
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 14px 0;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      white-space: pre-wrap;
+    }
+    .wa-label {
+      font-size: 0.75rem;
+      color: #25D366;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+    .tag-gold { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+    .tag-green { background: rgba(37,211,102,0.1); color: #25D366; border: 1px solid rgba(37,211,102,0.3); }
+    .tag-blue { background: rgba(66,135,245,0.1); color: #4287f5; border: 1px solid rgba(66,135,245,0.3); }
+
+    .tip-box {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 16px 0;
+    }
+    .tip-box p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin: 0; }
+    .tip-box strong { color: var(--gold); }
+
+    .hook-card {
+      background: rgba(13,22,40,0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin: 12px 0;
+    }
+    .hook-card .hook-platform {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .hook-card p { font-size: 0.92rem; color: var(--white); font-weight: 600; margin: 0; }
+    .hook-card .hook-sub { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 400; margin-top: 6px; }
+
+    .close-script {
+      background: rgba(8,8,16,0.8);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin: 14px 0;
+    }
+    .close-script .speaker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .speaker-albo { color: var(--gold); }
+    .speaker-student { color: rgba(255,255,255,0.4); }
+    .close-script p { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin: 0; line-height: 1.7; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 16px 0;
+    }
+    .info-card {
+      background: rgba(13,22,40,0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .info-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+    .info-card ul { padding-right: 16px; margin: 0; }
+    .info-card li { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 700px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">DARBUKA <span>by ALBO</span></a>
+      <a href="trial.html" class="btn-nav">שיעור ניסיון</a>
+    </div>
+  </nav>
+
+  <section class="strategy-page">
+    <div class="container">
+
+      <div class="page-hero" style="padding:0;text-align:right;margin-bottom:48px;">
+        <div class="section-label">מסמך אסטרטגיה</div>
+        <h1>משפך שיווקי מלא<br /><span class="gold">Darbuka by ALBO</span></h1>
+        <p style="color:rgba(255,255,255,0.55);font-size:0.9rem;margin-top:12px;">עודכן לאחרונה: יוני 2025</p>
+      </div>
+
+      <!-- TOC -->
+      <div class="strategy-toc">
+        <h3>תוכן עניינים</h3>
+        <div class="toc-links">
+          <a href="#funnel-map">1. מפת המשפך המלאה</a>
+          <a href="#lead-magnets">2. Lead Magnets — רעיונות</a>
+          <a href="#content-hooks">3. Hooks לסושיאל (TikTok / Instagram / Facebook)</a>
+          <a href="#whatsapp-automation">4. הודעות ווצאפ אוטומטיות</a>
+          <a href="#followup">5. Follow-Up Sequence</a>
+          <a href="#trial-lesson">6. איך לגרום לאנשים להגיע לשיעור ניסיון</a>
+          <a href="#close">7. איך לסגור תלמידים בשיחה</a>
+          <a href="#automations">8. אוטומציות מומלצות</a>
+          <a href="#cta">9. CTA — ניסוחים מנצחים</a>
+        </div>
+      </div>
+
+      <!-- ===== 1. FUNNEL MAP ===== -->
+      <div class="strat-section" id="funnel-map">
+        <h2>1. מפת המשפך המלאה <span class="tag tag-gold">TOFU → MOFU → BOFU</span></h2>
+        <p>המשפך מחולק ל-3 שלבים. כל שלב מטפל בשלב אחר במסע הלקוח:</p>
+
+        <div class="funnel-flow">
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">1</div>
+            <div class="funnel-stage-content">
+              <h4>TOFU — מודעות (TikTok / Instagram / Facebook)</h4>
+              <p>וידאו קצרים, Reels, Shorts. מטרה: להכניס אנשים לפאנל. Hook ← Value ← CTA קל.</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">2</div>
+            <div class="funnel-stage-content">
+              <h4>MOFU — עניין (Lead Magnet + WhatsApp Opt-in)</h4>
+              <p>מדריך חינם ← ממלאים שם + טלפון ← מקבלים ישר לוואטסאפ. בונים אמון.</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">3</div>
+            <div class="funnel-stage-content">
+              <h4>BOFU — שיקול (Follow-Up + שיעור ניסיון)</h4>
+              <p>סדרת הודעות ← הזמנה לשיעור ניסיון ← שיחת מכירה / סגירה.</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">4</div>
+            <div class="funnel-stage-content">
+              <h4>CONVERSION — תלמיד משלם</h4>
+              <p>מנוי חודשי / קורס דיגיטלי / חבילת שיעורים / שיעור בודד.</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">5</div>
+            <div class="funnel-stage-content">
+              <h4>RETENTION + REFERRAL — שגרירים</h4>
+              <p>תלמידים מרוצים מביאים חברים. תוכן של התלמידים = תוכן ויראלי.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>💡 כלל זהב:</strong> כל תוכן ב-TikTok/Instagram צריך להגיע לאחת משתי נקודות: (1) Lead Magnet Page או (2) WhatsApp ישיר. אל תסמוך על DMs בלבד.</p>
+        </div>
+      </div>
+
+      <!-- ===== 2. LEAD MAGNETS ===== -->
+      <div class="strat-section" id="lead-magnets">
+        <h2>2. Lead Magnets — רעיונות <span class="tag tag-blue">AWARENESS → INTEREST</span></h2>
+        <p>Lead Magnet הוא מתנה שנותנים בחינם תמורת פרטי קשר. חייב להיות:</p>
+        <ul>
+          <li><strong>מידי</strong> — מקבלים אותו עכשיו, לא "בקרוב"</li>
+          <li><strong>ספציפי</strong> — לא "מדריך לדרבוקה" אלא "5 ריתמוסים ל-30 שניות ראשונות"</li>
+          <li><strong>קצר</strong> — אנשים לא קוראים PDF של 40 עמודים</li>
+          <li><strong>מניב תוצאה</strong> — צריך שהאדם ירגיש שהוא הרוויח משהו</li>
+        </ul>
+
+        <h3>רעיון #1 — הכי חזק (מומלץ להתחיל כאן)</h3>
+        <div class="info-card">
+          <h4>🥁 "5 ריתמוסים שיעשו אותך מוזיקאי" — PDF + וידאו</h4>
+          <ul>
+            <li>PDF מפורט עם תמלול + הסבר כל ריתמוס</li>
+            <li>סרטון הדגמה של 3-5 דקות (ישר מהשדה)</li>
+            <li>מתאים לגמרי למתחילים</li>
+            <li><strong>כיצד לממש:</strong> CanvaPDF + Reels כהדגמה → Google Drive / Notion</li>
+          </ul>
+        </div>
+
+        <h3>רעיון #2 — לקהל מתקדם יותר</h3>
+        <div class="info-card">
+          <h4>🎵 "הסוד של הגרוב — 3 טיפים שאף אחד לא מלמד" — וידאו</h4>
+          <ul>
+            <li>סרטון בן 5-8 דקות — ישיר, בלי שטויות</li>
+            <li>מושך נגנים שכבר יודעים להחזיק דרבוקה</li>
+            <li>מייצב אותך כסמכות — לא רק "מורה"</li>
+          </ul>
+        </div>
+
+        <h3>רעיון #3 — לאנשים שרוצים להופיע</h3>
+        <div class="info-card">
+          <h4>🎤 "איך לנגן סולו שמשתיק את הקהל — מדריך 10 דקות"</h4>
+          <ul>
+            <li>אידאלי לנגנים שרוצים להגיע לרמת הופעה</li>
+            <li>בונה ציפייה לקורס הדיגיטלי המתקדם</li>
+          </ul>
+        </div>
+
+        <h3>רעיון #4 — ויראלי + קהילה</h3>
+        <div class="info-card">
+          <h4>💬 "הצטרף לקהילת נגני הדרבוקה של ALBO" — קבוצת ווצאפ</h4>
+          <ul>
+            <li>קבוצת WhatsApp עם 100-500 איש</li>
+            <li>תוכן חינמי יומי / שבועי</li>
+            <li>פאנל מוכן → כשמוכרים קורס → יש לקוחות מוכנים</li>
+            <li><strong>שם:</strong> "נגני ALBO 🥁" או "Darbuka by ALBO — Community"</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ===== 3. CONTENT HOOKS ===== -->
+      <div class="strat-section" id="content-hooks">
+        <h2>3. Hooks לסושיאל <span class="tag tag-blue">TikTok / Instagram / Facebook</span></h2>
+        <p>ה-Hook הוא ה-3 השניות הראשונות של הוידאו. הוא מחליט אם יעצרו לצפות. כלל: <strong>Hook חייב לייצר סקרנות, הבטחה, או הלם.</strong></p>
+
+        <h3>Hooks ויזואליים (ללא מילים)</h3>
+        <div class="hook-card">
+          <div class="hook-platform">TIKTOK / REELS</div>
+          <p>מתחיל לנגן ביט מטורף בתוך 2 שניות — ללא הקדמה.</p>
+          <p class="hook-sub">הצופה עוצר כי האוזן שלו נתפסת. האצבעות ממשיכות לעבוד, המצלמה קרובה.</p>
+        </div>
+        <div class="hook-card">
+          <div class="hook-platform">TIKTOK / REELS</div>
+          <p>POV: הפנים שלך כשאתה שומע דרבוקה טובה לראשונה</p>
+          <p class="hook-sub">Reaction Shot — אנשים אוהבים תגובות רגשיות אמיתיות.</p>
+        </div>
+        <div class="hook-card">
+          <div class="hook-platform">BEFORE/AFTER</div>
+          <p>תלמיד — שיעור ראשון vs. שיעור חמישי</p>
+          <p class="hook-sub">הכי ויראלי שיש. Social proof + מוטיבציה + סמכות.</p>
+        </div>
+
+        <h3>Hooks טקסטואליים (בתחילת הוידאו)</h3>
+        <div class="hook-card">
+          <p>"ה-3 טעויות שכל מתחיל עושה בדרבוקה (ואיך להימנע)"</p>
+        </div>
+        <div class="hook-card">
+          <p>"אם אתה לא יודע לנגן את זה — אתה עדיין מתחיל"</p>
+        </div>
+        <div class="hook-card">
+          <p>"למדתי דרבוקה ב-30 יום. הנה מה שקרה."</p>
+        </div>
+        <div class="hook-card">
+          <p>"POV: אתה בא לשיעור ניסיון אצלי 🥁"</p>
+        </div>
+        <div class="hook-card">
+          <p>"מוזיקאים מקצועיים שונאים את הטריק הזה 👀"</p>
+        </div>
+
+        <h3>CTA בסוף הוידאו (להביא לפאנל)</h3>
+        <ul>
+          <li>"קישור בביו לקבל את המדריך החינמי שלי"</li>
+          <li>"כתבו לי 'רוצה' בתגובות ואשלח לכם את זה"</li>
+          <li>"לשיעור ניסיון חינם — קישור בביו"</li>
+          <li>"עקבו לעוד ריתמוסים כאלה מדי יום"</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>💡 פורמולת הוידאו:</strong> Hook (3 שניות) → Value (עיקר) → CTA רך → CTA חזק. לא מעל 90 שניות.</p>
+        </div>
+      </div>
+
+      <!-- ===== 4. WHATSAPP AUTOMATION ===== -->
+      <div class="strat-section" id="whatsapp-automation">
+        <h2>4. הודעות ווצאפ אוטומטיות <span class="tag tag-green">WhatsApp Business</span></h2>
+        <p>עם WhatsApp Business API (Wati / Respond.io / ChatBot) אפשר לשלוח הודעות אוטומטיות מבוססות טריגר.</p>
+
+        <h3>הודעה #1 — ברכה מיידית (אחרי opt-in)</h3>
+        <div class="wa-label">מיידי — כשנרשמים למדריך</div>
+        <div class="wa-message">היי {{שם}}! 🥁
+
+אני אליה, Darbuka by ALBO.
+
+קיבלתי את הבקשה שלך ושלחתי לך את המדריך:
+👉 "5 ריתמוסים שיעשו אותך מוזיקאי"
+
+📎 [קישור למדריך]
+🎥 [קישור לוידאו הדגמה]
+
+שאלות? פשוט כתוב לי כאן — אני עונה לכולם אישית. 🙏</div>
+
+        <h3>הודעה #2 — ערך (24 שעות אחרי)</h3>
+        <div class="wa-label">24 שעות אחרי הרשמה</div>
+        <div class="wa-message">{{שם}}, היי! 👋
+
+קיבלת כבר את המדריך? אני שואל כי לרוב האנשים לוקח יום להתחיל לנסות. 😄
+
+שתף אותי — הספקת לנגן את הריתמוס הראשון?
+
+אם כן — *כל הכבוד*, אתה בדרך הנכונה.
+אם לא — אין בעיה, הוא לא הולק לשום מקום 😊
+
+P.S. אם אתה רוצה שאראה לך בדיוק איך זה נשמע Live — יש לי שיעור ניסיון חינם. פשוט כתוב לי "רוצה" ונקבע.</div>
+
+        <h3>הודעה #3 — עדות / Social Proof (48 שעות)</h3>
+        <div class="wa-label">48 שעות אחרי הרשמה</div>
+        <div class="wa-message">הי {{שם}} 👋
+
+רצה לשתף אותך בסיפור של דניאל מת"א:
+
+הוא בא אליי לפני 3 חודשים — מעולם לא אחז דרבוקה.
+אחרי שיעור ניסיון אחד הוא ידע ריתמוס שלם.
+היום הוא מנגן בצהריי משפחה ומקבל מחיאות כפיים 🎉
+
+*למה אני מספר לך?*
+כי אתה בדיוק שם איפה שדניאל היה.
+
+אם בא לך לבוא לראות מה קורה בשיעור — כתוב לי "שיעור" ואנחנו מסדרים.</div>
+
+        <h3>הודעה #4 — FOMO (5 ימים)</h3>
+        <div class="wa-label">5 ימים אחרי הרשמה</div>
+        <div class="wa-message">{{שם}}, שאלה אחת ישירה:
+
+מה מונע ממך לנגן דרבוקה עכשיו?
+
+💭 "אין לי זמן" — שיעורים של 30 דקות, גמישים לחלוטין
+💭 "יקר מדי" — שיעור ניסיון ראשון ב-0 ₪
+💭 "לא יודע אם זה בשבילי" — בדיוק בשביל זה יש ניסיון חינם
+💭 "אין לי דרבוקה" — מסביר בשיעור איך לבחור
+
+אם אחד מאלה עצר אותך — בוא נדבר. אני מבטיח ששיחה של 5 דקות תיתן לך תשובה ברורה.
+
+כתוב לי כאן 🤙</div>
+
+        <h3>הודעה #5 — הצעה ישירה (7 ימים)</h3>
+        <div class="wa-label">שבוע אחרי הרשמה</div>
+        <div class="wa-message">{{שם}}, הודעה אחרונה ממני בנושא 🙂
+
+יש לי 3 מקומות פנויים השבוע לשיעור ניסיון חינם.
+פנים-אל-פנים או אונליין — לפי מה שמתאים לך.
+
+אם בא לך — ענה כאן עם "כן" ונקבע בתוך דקות.
+אם לא — אין בעיה בכלל, תמיד ברוך הבא 🙏
+
+בכל מקרה — שמח שהורדת את המדריך!
+מקווה שהוא עזר.
+
+אליה 🥁</div>
+
+        <div class="tip-box">
+          <p><strong>💡 כלל:</strong> אל תשלח יותר מהודעה אחת ביום. תן שוויון נפש — הלחץ מרחיק. מי שעונה "מעניין" בכל שלב — הכנס לטריגר "מעורב" ושלח הצעת שיעור מיד.</p>
+        </div>
+      </div>
+
+      <!-- ===== 5. FOLLOW UP ===== -->
+      <div class="strat-section" id="followup">
+        <h2>5. Follow-Up Sequence <span class="tag tag-green">אחרי שיעור ניסיון</span></h2>
+        <p>מי שהגיע לשיעור ניסיון אבל לא נסגר — לא אבוד. הסיקוונס הזה מוביל אותו לסגירה ב-7 ימים:</p>
+
+        <h4>📩 Follow-Up #1 — מיד אחרי השיעור (תוך 1-2 שעות)</h4>
+        <div class="wa-message">{{שם}}! 🥁
+
+תודה שבאת היום — ממש נהניתי ללמד אותך.
+
+שמתי לב ל[תכונה ספציפית — "אתה תופס מהר", "יש לך אוזן טובה", "הידיים שלך זזות טבעית"].
+
+מה דעתך על השיעור? מה הכי הרגשת?
+
+*(אין מחויבות — שואל כי אכפת לי)*</div>
+
+        <h4>📩 Follow-Up #2 — יום לאחר מכן</h4>
+        <div class="wa-message">{{שם}} 👋
+
+חשבת על המשך?
+
+כשאתה מתחיל עכשיו יש לך momentum — זה הזמן הכי טוב לנצל אותו.
+
+יש לי חבילה של 4 שיעורים ב-[מחיר] — נועדת בדיוק לשלב שאתה נמצא בו.
+4 שיעורים = יסודות שלמים + ריתמוסים שעובדים + ביטחון.
+
+כתוב לי "אני בפנים" ואשלח לך את הפרטים.</div>
+
+        <h4>📩 Follow-Up #3 — 3 ימים לאחר מכן</h4>
+        <div class="wa-message">{{שם}},
+
+משהו ששאלתי כמה תלמידים שהתחילו כמוך:
+
+מה היה חסר לך ב[ריתמוס שלמדנו] כשניסית לנגן לבד הביתה?
+
+כי זה בדיוק מה שפותרים בשיעור #2 — נוגעים בנקודות שמפריעות לך, לא באיזה curriculum גנרי.
+
+בא לך לנסות?</div>
+
+        <h4>📩 Follow-Up #4 — שבוע לאחר מכן (סגירה)</h4>
+        <div class="wa-message">{{שם}},
+
+אני יודע שלפעמים לוקח זמן להחליט — וזה בסדר.
+
+רק רציתי להגיד שהמחיר הנוכחי ל-4 שיעורים בתוקף עד [תאריך].
+אחרי זה עולה.
+
+אם הסיפקת בשיעור הניסיון — הדלת פתוחה.
+פשוט כתוב לי וסוגרים. 🤝
+
+אם לא — גם בסדר. תמיד אפשר לחזור.
+
+אליה</div>
+      </div>
+
+      <!-- ===== 6. TRIAL LESSON ===== -->
+      <div class="strat-section" id="trial-lesson">
+        <h2>6. איך לגרום לאנשים להגיע לשיעור ניסיון</h2>
+        <p>הבעיה הגדולה ביותר: אנשים נרשמים ולא מגיעים. הסיבות: שכחו, אין urgency, לא מחויבים.</p>
+
+        <h3>שלב 1 — סגירת הפגישה נכון</h3>
+        <ul>
+          <li><strong>קבע תאריך ושעה ספציפיים</strong> — "אוקיי יום שלישי 19:00?" לא "בשבוע הבא"</li>
+          <li><strong>שלח אישור מיד</strong> — הודעת אישור עם פרטים + תזכורת ביומן (Google Calendar link)</li>
+          <li><strong>בקש מחויבות קטנה</strong> — "שמור [קישור Zoom] — ביומן שלך"</li>
+        </ul>
+
+        <h3>שלב 2 — תזכורות (Reminder Sequence)</h3>
+        <div class="wa-message">24 שעות לפני:
+
+{{שם}} 👋 מחר בשעה [שעה] — שיעור הניסיון שלך! 🥁
+מצפה לפגוש אותך.
+קישור: [zoom link] / כתובת: [כתובת]
+שאלות? כאן איתך.</div>
+
+        <div class="wa-message">2 שעות לפני:
+
+{{שם}}, עוד 2 שעות!
+רק לוודא שיש לך: [דרבוקה / כיסא נוח / חיבור יציב לזום]
+להתראות בקרוב 🎵</div>
+
+        <div class="wa-message">15 דקות לפני (אונליין):
+
+{{שם}}, זה הזמן! 🔗
+קישור: [zoom link]
+נפגשים עוד רגע 🥁</div>
+
+        <h3>שלב 3 — אם לא הגיעו (No-Show)</h3>
+        <div class="wa-message">{{שם}} 👋 פספסתי אותך היום.
+הכל בסדר?
+אין בעיה — קורה.
+בא לך לקבוע שוב? יש לי [תאריך א'] ו[תאריך ב'] פנויים. 🙂</div>
+
+        <div class="tip-box">
+          <p><strong>💡 מחקר:</strong> שיעורי הגעה עולים ב-40%+ כשיש 2 תזכורות (24 שעות + 2 שעות). אל תשמיט את זה.</p>
+        </div>
+      </div>
+
+      <!-- ===== 7. CLOSE ===== -->
+      <div class="strat-section" id="close">
+        <h2>7. איך לסגור תלמידים בשיחה</h2>
+        <p>המטרה בסגירה: להבין את ה-Pain, להציע פתרון מדויק, ולהוריד חסמים. לא למכור — לעזור להחליט.</p>
+
+        <h3>מבנה שיחת המכירה (5 שלבים)</h3>
+
+        <div class="close-script">
+          <div class="speaker speaker-albo">שלב 1 — חימום (2 דקות)</div>
+          <p>"תגיד לי, איך הרגשת בשיעור? מה הכי זכור לך?"<br />
+          [תן לו לדבר — הקשב. אל תמהר לפתוח את ה"תפריט" שלך.]</p>
+        </div>
+
+        <div class="close-script">
+          <div class="speaker speaker-albo">שלב 2 — גילוי צרכים (3-4 דקות)</div>
+          <p>"מה המטרה שלך עם הדרבוקה? לאן אתה רוצה להגיע?"<br />
+          "תוך כמה זמן?"<br />
+          "מה מנע ממך להתחיל עד עכשיו?"<br /><br />
+          [שאל — ושתוק. הוא ימלא את השתיקה בדיוק ב-Pain שלו.]</p>
+        </div>
+
+        <div class="close-script">
+          <div class="speaker speaker-albo">שלב 3 — חיבור (2 דקות)</div>
+          <p>"אז אם אני מבין נכון — אתה רוצה [מטרה שלו], תוך [זמן שלו], ועד עכשיו [חסם שלו] עצר אותך. נכון?"<br /><br />
+          [כשהוא אומר "כן" — הוא כבר מסכים עם הניתוח שלך. עכשיו מציגים פתרון.]</p>
+        </div>
+
+        <div class="close-script">
+          <div class="speaker speaker-albo">שלב 4 — הצגת ההצעה (2 דקות)</div>
+          <p>"אז הנה מה שאני מציע: [חבילה מדויקת לצרכיו].<br />
+          זה כולל [תוכן ספציפי]. בדרך כלל [מחיר מלא], אבל כי התחלת איתי היום — [מחיר מוזל]."<br /><br />
+          [הצג מחיר בביטחון. אל תפרט. אל תסביר יותר מדי. הצג ושתוק.]</p>
+        </div>
+
+        <div class="close-script">
+          <div class="speaker speaker-albo">שלב 5 — טיפול בהתנגדויות</div>
+          <p><strong>התנגדות: "יקר לי"</strong><br />
+          "אני שומע אותך. אגב — ממוצע שיעורים בשוק זה [X₪]. כאן אתה מקבל [ספציפי]. אבל אם ה[מחיר] הוא חסם — יש לי גם אפשרות של [שיעור בודד / 2 שיעורים]. מה מתאים יותר?"</p>
+
+          <p><strong>התנגדות: "צריך לחשוב"</strong><br />
+          "ברור, לא ממהר. מה בדיוק צריך לחשוב? לפעמים אני יכול לענות מיד ונחסוך לך זמן."</p>
+
+          <p><strong>התנגדות: "אין לי זמן"</strong><br />
+          "שיעור אחד בשבוע — 30 עד 60 דקות. פחות מפרק Netflix אחד. אם כן, אפשר לנגן דרבוקה תוך חודש."</p>
+        </div>
+
+        <div class="tip-box">
+          <p><strong>💡 כלל הסגירה:</strong> מי ששואל שאלות — קונה. מי שאומר "יקר" — רוצה לקנות אבל צריך עזרה להצדיק. מי שלא עונה — צריך follow-up.</p>
+        </div>
+      </div>
+
+      <!-- ===== 8. AUTOMATIONS ===== -->
+      <div class="strat-section" id="automations">
+        <h2>8. אוטומציות מומלצות</h2>
+
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>🤖 WhatsApp Business API</h4>
+            <ul>
+              <li><strong>Wati.io</strong> — קל, בעברית, חינם לבסיס</li>
+              <li><strong>Respond.io</strong> — מתקדם, CRM מובנה</li>
+              <li><strong>360dialog</strong> — API ישיר, מתקדם</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>📋 CRM מומלץ</h4>
+            <ul>
+              <li><strong>Notion</strong> — חינם, גמיש, מושלם לסולו</li>
+              <li><strong>HubSpot Free</strong> — CRM מלא חינם</li>
+              <li><strong>Airtable</strong> — גיליון + CRM</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>📅 קביעת פגישות</h4>
+            <ul>
+              <li><strong>Calendly</strong> — קישור לשיעור ניסיון, אוטו-תזכורות</li>
+              <li><strong>Cal.com</strong> — חינם, open source</li>
+              <li><strong>Google Calendar</strong> + Zapier</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>💳 תשלומים</h4>
+            <ul>
+              <li><strong>Grow</strong> (ישראלי) — PayLink קל</li>
+              <li><strong>PayPal</strong> — בינלאומי</li>
+              <li><strong>Stripe</strong> — לקורס דיגיטלי</li>
+              <li><strong>Bit / Paybox</strong> — ישראל</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>📹 קורס דיגיטלי</h4>
+            <ul>
+              <li><strong>Teachable</strong> — פשוט, מוכר</li>
+              <li><strong>Kajabi</strong> — פרימיום, הכל-בחד</li>
+              <li><strong>Podia</strong> — פשוט + זול</li>
+              <li><strong>Udemy</strong> — קהל מובנה</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>⚡ אוטומציית תהליכים</h4>
+            <ul>
+              <li><strong>Zapier</strong> — חיבור בין כלים</li>
+              <li><strong>Make (Integromat)</strong> — מתקדם יותר</li>
+              <li><strong>n8n</strong> — open source, חינם</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>פלואו אוטומציה מומלץ (בסיסי)</h3>
+        <div class="funnel-flow">
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">1</div>
+            <div class="funnel-stage-content">
+              <h4>ממלאים טופס Lead Magnet</h4>
+              <p>Google Forms / אתר → Webhook → Zapier</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">2</div>
+            <div class="funnel-stage-content">
+              <h4>פרטים נשמרים ב-Notion / Google Sheets</h4>
+              <p>שם, טלפון, רמה, תאריך הרשמה</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">3</div>
+            <div class="funnel-stage-content">
+              <h4>WhatsApp מיידי (Wati / Respond.io)</h4>
+              <p>הודעת ברכה אוטומטית + קישור למדריך</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">4</div>
+            <div class="funnel-stage-content">
+              <h4>Sequence אוטומטי (24h / 48h / 5d / 7d)</h4>
+              <p>הודעות מוכנות מראש — ללא מגע יד</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">5</div>
+            <div class="funnel-stage-content">
+              <h4>עונה "כן" / "רוצה" / "שיעור"</h4>
+              <p>Bot מזהה מילת מפתח → שולח קישור Calendly לקביעת שיעור</p>
+            </div>
+          </div>
+          <div class="funnel-arrow">↓</div>
+          <div class="funnel-stage">
+            <div class="funnel-stage-num">6</div>
+            <div class="funnel-stage-content">
+              <h4>קובע → תזכורות אוטומטיות (24h + 2h)</h4>
+              <p>Calendly שולח תזכורות SMS + WhatsApp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 9. CTA ===== -->
+      <div class="strat-section" id="cta">
+        <h2>9. CTA — ניסוחים מנצחים</h2>
+        <p>CTA (Call to Action) הוא הפקודה שאומרת לאדם מה לעשות עכשיו. חייב להיות: ספציפי, קל, ובעל ערך ברור.</p>
+
+        <h3>לסושיאל (TikTok / Instagram / Facebook)</h3>
+        <ul>
+          <li>"קישור בביו → שיעור ניסיון חינם"</li>
+          <li>"כתבו לי 'דרבוקה' בהודעה ואשלח לכם את המדריך"</li>
+          <li>"לייק אם רוצה עוד ריתמוסים כאלה 🥁"</li>
+          <li>"שמרו את הסרטון הזה — תודו לי אחר כך 😄"</li>
+          <li>"עיקבו לתוכן יומי על דרבוקה"</li>
+        </ul>
+
+        <h3>לדפי נחיתה (Buttons)</h3>
+        <ul>
+          <li>"שמור לי מקום לשיעור ניסיון ← " (Primary)</li>
+          <li>"שלח לי את המדריך חינם ←" (Lead Magnet)</li>
+          <li>"כתוב לי בוואטסאפ" (WhatsApp Direct)</li>
+          <li>"התחל היום" (Generic)</li>
+        </ul>
+
+        <h3>לוואטסאפ (Follow-Up)</h3>
+        <ul>
+          <li>"כתוב לי 'רוצה' ואסגור לך מקום"</li>
+          <li>"ענה 'כן' ואשלח לך את הפרטים"</li>
+          <li>"כתוב 'שיעור' ואנחנו מסדרים"</li>
+        </ul>
+
+        <div class="tip-box">
+          <p><strong>💡 כלל:</strong> CTA אחד בכל פוסט. לא שניים. לא שלושה. אחד — ספציפי — קל לביצוע. יותר מדי אפשרויות = אפס פעולה.</p>
+        </div>
+
+        <h3>מודל תמחור מומלץ</h3>
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>🎯 Entry Level</h4>
+            <ul>
+              <li>שיעור ניסיון — חינם</li>
+              <li>שיעור בודד — 120-180₪</li>
+              <li>חבילת 4 שיעורים — 400-550₪</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>🚀 Premium Level</h4>
+            <ul>
+              <li>מנוי חודשי (4 שיעורים) — 450-600₪</li>
+              <li>קורס דיגיטלי — 497-997₪</li>
+              <li>VIP Intensive — 1,200₪+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div style="text-align:center;padding:60px 0 20px;">
+        <h2 style="font-size:2rem;font-weight:900;margin-bottom:16px;">מוכן לבנות את המשפך?</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:32px;">כל הכלים כאן. הצעד הבא — להכניס מספר ווצאפ אמיתי ולהפוך את הכל לפעיל.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="lead-magnet.html" class="btn-primary">דף Lead Magnet ←</a>
+          <a href="trial.html" class="btn-ghost">דף שיעור ניסיון</a>
+          <a href="index.html" class="btn-ghost">דף הבית</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

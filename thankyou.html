@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>תודה! | Darbuka by ALBO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .ty-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        linear-gradient(135deg, #080810, #0a1628, #080810);
+    }
+    .ty-box {
+      max-width: 560px;
+    }
+    .ty-icon {
+      font-size: 4rem;
+      margin-bottom: 24px;
+      display: block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    .ty-box h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .ty-box p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .ty-steps {
+      margin: 36px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: right;
+    }
+    .ty-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: rgba(13,22,40,0.5);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+    }
+    .ty-step-num {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, var(--gold), #a07828);
+      color: #000;
+      font-weight: 900;
+      font-size: 0.8rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ty-step-text h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
+    .ty-step-text p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0; }
+    .ty-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">DARBUKA <span>by ALBO</span></a>
+    </div>
+  </nav>
+
+  <section class="ty-page">
+    <div class="ty-box">
+      <span class="ty-icon">🥁</span>
+      <div class="section-label">הצלחת!</div>
+      <h1>תודה! <span class="gold">אנחנו בקשר.</span></h1>
+      <p>
+        קיבלתי את הפנייה שלך ואחזור אליך תוך 24 שעות.<br />
+        בינתיים, הנה מה שמחכה לך:
+      </p>
+
+      <div class="ty-steps">
+        <div class="ty-step">
+          <div class="ty-step-num">1</div>
+          <div class="ty-step-text">
+            <h4>בדוק את הוואטסאפ שלך</h4>
+            <p>המדריך / אישור הפגישה בדרך אליך.</p>
+          </div>
+        </div>
+        <div class="ty-step">
+          <div class="ty-step-num">2</div>
+          <div class="ty-step-text">
+            <h4>עקוב אחרי בסושיאל</h4>
+            <p>TikTok ו-Instagram — תוכן יומי שיעזור לך לנגן טוב יותר.</p>
+          </div>
+        </div>
+        <div class="ty-step">
+          <div class="ty-step-num">3</div>
+          <div class="ty-step-text">
+            <h4>אליה חוזר אליך בקרוב</h4>
+            <p>נקבע זמן, נמצא את הפרמט המתאים לך ומתחילים.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ty-ctas">
+        <a href="https://www.tiktok.com/@darbukabyalbo" class="btn-ghost" target="_blank">עקוב ב-TikTok</a>
+        <a href="https://www.instagram.com/darbukabyalbo" class="btn-ghost" target="_blank">עקוב ב-Instagram</a>
+        <a href="index.html" class="btn-primary">חזרה לאתר ←</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
