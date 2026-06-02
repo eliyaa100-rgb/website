@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darbuka by ALBO — קרוסלה אינסטגרם</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #C9A84C;
+      --gold-light: #E8CC7A;
+      --gold-dim:   #8A6B2E;
+      --black:      #0A0A0A;
+      --navy:       #0D1B2A;
+      --white:      #F5F0E8;
+      --gray:       #888;
+      --slide-w:    420px;
+      --slide-h:    420px;
+    }
+
+    body {
+      background: #080808;
+      font-family: 'Heebo', sans-serif;
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── LAYOUT ─── */
+    .page-header {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+    .page-header .brand-logo {
+      width: 90px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .page-header p {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+
+    /* ─── CAROUSEL WRAPPER ─── */
+    .carousel-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0 0;
+    }
+
+    .carousel-frame {
+      position: relative;
+      width: var(--slide-w);
+      max-width: 92vw;
+    }
+
+    /* ─── SLIDE TRACK ─── */
+    .slides-track {
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,76,.15);
+    }
+
+    .slides-inner {
+      display: flex;
+      transition: transform .55s cubic-bezier(.77,0,.175,1);
+    }
+
+    .slide {
+      min-width: var(--slide-w);
+      max-width: 92vw;
+      height: var(--slide-h);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 32px 28px;
+    }
+
+    /* ─── BG LAYERS ─── */
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 6s ease;
+    }
+    .slide:hover .slide-bg { transform: scale(1.04); }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        170deg,
+        rgba(10,10,10,.15) 0%,
+        rgba(10,10,10,.55) 40%,
+        rgba(10,10,10,.92) 100%
+      );
+    }
+
+    /* ─── SLIDE TEXT ─── */
+    .slide-content { position: relative; z-index: 2; width: 100%; }
+
+    .slide-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .slide-number {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      font-size: 10px;
+      color: rgba(201,168,76,.5);
+      font-weight: 300;
+      letter-spacing: 2px;
+      z-index: 3;
+    }
+
+    .slide-headline {
+      font-size: clamp(22px, 5.5vw, 28px);
+      font-weight: 900;
+      line-height: 1.22;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .slide-headline .gold { color: var(--gold-light); }
+
+    .slide-body {
+      font-size: clamp(13px, 3.2vw, 15px);
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(245,240,232,.78);
+      margin-bottom: 14px;
+    }
+
+    .slide-cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1.5px solid var(--gold);
+      border-radius: 40px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: .5px;
+      transition: background .25s, color .25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .slide-cta-pill:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .slide-cta-pill .arrow { font-style: normal; transition: transform .25s; }
+    .slide-cta-pill:hover .arrow { transform: translateX(-4px); }
+
+    /* ─── SLIDE 1 — HOOK ─── */
+    #slide-1 .slide-bg {
+      background-image: url('images/performance.jpeg');
+      background-position: center 30%;
+    }
+    #slide-1 .slide-overlay {
+      background: linear-gradient(
+        160deg,
+        rgba(13,27,42,.3) 0%,
+        rgba(10,10,10,.5) 35%,
+        rgba(10,10,10,.97) 100%
+      );
+    }
+    #slide-1 .slide-headline { font-size: clamp(24px, 6vw, 32px); }
+
+    /* ─── SLIDE 2 ─── */
+    #slide-2 .slide-bg {
+      background-image: url('images/desert.jpeg');
+      background-position: center 20%;
+    }
+
+    /* ─── SLIDE 3 — MISTAKE ─── */
+    #slide-3 { background: var(--navy); justify-content: center; }
+    #slide-3 .slide-bg {
+      background: radial-gradient(ellipse at 60% 40%, rgba(201,168,76,.08) 0%, transparent 70%);
+    }
+    #slide-3 .slide-overlay { background: none; }
+
+    .mistake-card {
+      position: relative; z-index: 2; width: 100%;
+      padding: 8px 0;
+    }
+    .mistake-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+    .mistake-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .mistake-icon.wrong { background: rgba(255,80,80,.15); border: 1px solid rgba(255,80,80,.3); }
+    .mistake-icon.right { background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.3); }
+    .mistake-text { font-size: 13px; line-height: 1.55; color: rgba(245,240,232,.8); }
+    .mistake-text strong { color: var(--white); font-weight: 700; }
+
+    /* ─── SLIDE 4 — EMOTION ─── */
+    #slide-4 .slide-bg {
+      background-image: url('images/performance.jpeg');
+      background-position: center 20%;
+    }
+    #slide-4 .slide-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(10,10,10,.0) 0%,
+        rgba(10,10,10,.65) 50%,
+        rgba(10,10,10,.97) 100%
+      );
+    }
+
+    /* ─── SLIDE 5 — PUNCH ─── */
+    #slide-5 { background: var(--black); justify-content: center; }
+    #slide-5 .slide-bg {
+      background: radial-gradient(ellipse at 30% 60%, rgba(13,27,42,.9) 0%, var(--black) 70%);
+    }
+    #slide-5 .slide-overlay { background: none; }
+    .punch-content {
+      position: relative; z-index: 2; width: 100%;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .punch-content .big-quote {
+      font-size: clamp(36px, 9vw, 52px);
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .punch-content .sub {
+      font-size: 14px;
+      color: rgba(245,240,232,.65);
+      line-height: 1.6;
+    }
+    .punch-divider {
+      width: 40px; height: 2px;
+      background: var(--gold);
+      margin: 14px auto;
+      border-radius: 2px;
+    }
+
+    /* ─── SLIDE 6 — CTA ─── */
+    #slide-6 { background: var(--black); justify-content: center; align-items: center; }
+    #slide-6 .slide-bg {
+      background-image: url('images/logo.jpeg');
+      background-size: cover;
+      background-position: center;
+      opacity: .18;
+    }
+    #slide-6 .slide-overlay {
+      background: rgba(10,10,10,.55);
+    }
+    .cta-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+    }
+    .cta-content .cta-brand {
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .cta-content .cta-big {
+      font-size: clamp(26px, 6.5vw, 34px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .cta-content .cta-sub {
+      font-size: 13px;
+      color: rgba(245,240,232,.65);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 14px;
+      font-weight: 800;
+      padding: 13px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: .5px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 8px 30px rgba(201,168,76,.35);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201,168,76,.5);
+    }
+
+    /* ─── PROGRESS / NAV ─── */
+    .progress-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      padding: 18px 0 6px;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.25);
+      transition: all .35s ease;
+      cursor: pointer;
+    }
+    .dot.active {
+      background: var(--gold);
+      width: 22px;
+      border-radius: 3px;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: var(--slide-w);
+      max-width: 92vw;
+      padding: 10px 0 30px;
+    }
+    .nav-btn {
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.2);
+      color: var(--gold);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, border-color .2s;
+    }
+    .nav-btn:hover { background: rgba(201,168,76,.18); border-color: var(--gold); }
+    .nav-btn:disabled { opacity: .2; cursor: default; }
+
+    .slide-counter {
+      font-size: 12px;
+      color: rgba(201,168,76,.5);
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+
+    /* ─── CONTENT GUIDE ─── */
+    .guide-section {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .guide-divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 0 auto 40px;
+    }
+
+    .guide-title {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .guide-heading {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 50px;
+    }
+
+    .guide-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(201,168,76,.12);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+      transition: border-color .25s;
+    }
+    .guide-card:hover { border-color: rgba(201,168,76,.3); }
+
+    .guide-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .guide-card-num {
+      width: 32px; height: 32px; min-width: 32px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold-dim);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .guide-card-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .guide-card-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .guide-card-body {
+      padding-right: 46px;
+    }
+    .guide-card-body p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(245,240,232,.7);
+      margin-bottom: 10px;
+    }
+    .guide-card-body .main-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .guide-card-body .sub-text {
+      font-size: 14px;
+      color: rgba(245,240,232,.6);
+    }
+    .guide-card-body ul {
+      list-style: none;
+      padding: 0;
+    }
+    .guide-card-body ul li {
+      font-size: 13.5px;
+      color: rgba(245,240,232,.72);
+      line-height: 1.6;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      display: flex;
+      gap: 8px;
+    }
+    .guide-card-body ul li::before {
+      content: '›';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .guide-card-body .visual-box {
+      background: rgba(201,168,76,.06);
+      border: 1px solid rgba(201,168,76,.15);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+    .guide-card-body .visual-box .vb-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .guide-card-body .visual-box p {
+      font-size: 13px;
+      color: rgba(245,240,232,.65);
+      margin: 0;
+    }
+
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .tag {
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.2);
+      color: var(--gold-light);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+
+    .alt-list {
+      counter-reset: alt;
+    }
+    .alt-item {
+      counter-increment: alt;
+      display: flex;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      align-items: flex-start;
+    }
+    .alt-item::before {
+      content: counter(alt);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      min-width: 16px;
+      margin-top: 1px;
+    }
+    .alt-item span { font-size: 13.5px; color: rgba(245,240,232,.75); line-height: 1.5; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .grid-box {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .grid-box .gb-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .grid-box p { font-size: 12.5px; color: rgba(245,240,232,.65); line-height: 1.55; margin: 0; }
+
+    .caption-box {
+      background: linear-gradient(135deg, rgba(13,27,42,.8), rgba(10,10,10,.9));
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 14px;
+      padding: 22px 22px 18px;
+      margin-top: 8px;
+    }
+    .caption-box .cb-label {
+      font-size: 9px; letter-spacing: 3px;
+      color: var(--gold-dim); text-transform: uppercase; margin-bottom: 12px;
+    }
+    .caption-box p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(245,240,232,.8);
+      white-space: pre-line;
+    }
+
+    .music-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .music-icon { font-size: 18px; flex-shrink: 0; }
+    .music-text { font-size: 13.5px; color: rgba(245,240,232,.72); line-height: 1.5; }
+    .music-text strong { color: var(--white); display: block; }
+
+    .reels-card {
+      background: linear-gradient(135deg, rgba(13,27,42,.9), rgba(10,10,10,.95));
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 14px;
+      padding: 22px 22px 18px;
+      margin-top: 8px;
+    }
+    .reels-step {
+      display: flex;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      align-items: flex-start;
+    }
+    .reels-step:last-child { border-bottom: none; }
+    .reels-step-num {
+      width: 24px; height: 24px; min-width: 24px;
+      background: rgba(201,168,76,.12);
+      border: 1px solid var(--gold-dim);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .reels-step-text { font-size: 13px; color: rgba(245,240,232,.72); line-height: 1.55; }
+    .reels-step-text strong { color: var(--white); font-weight: 700; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 480px) {
+      :root { --slide-w: 100vw; --slide-h: 100vw; }
+      .slides-track { border-radius: 14px; }
+      .slide { padding: 24px 20px; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     PAGE HEADER
+════════════════════════════════════════ -->
+<header class="page-header">
+  <img src="images/logo.jpeg" alt="Darbuka by ALBO" class="brand-logo" />
+  <h1>Darbuka by ALBO</h1>
+  <p>Instagram / Facebook / TikTok Carousel — קרוסלה מקצועית</p>
+</header>
+
+
+<!-- ════════════════════════════════════════
+     CAROUSEL
+════════════════════════════════════════ -->
+<section class="carousel-section">
+
+  <div class="carousel-frame">
+    <div class="slides-track">
+      <div class="slides-inner" id="slidesInner">
+
+        <!-- ── SLIDE 1 — HOOK ── -->
+        <div class="slide" id="slide-1">
+          <div class="slide-bg"></div>
+          <div class="slide-overlay"></div>
+          <div class="slide-number">01 / 06</div>
+          <div class="slide-content">
+            <span class="slide-tag">🥁 Darbuka by ALBO</span>
+            <h2 class="slide-headline">
+              אתה שומע מוזיקה
+              <br/>ומרגיש שאתה <span class="gold">אמור לנגן</span>
+              <br/>— אבל לא יודע מאיפה להתחיל?
+            </h2>
+            <p class="slide-body">המשיך לגלול. יש לי משהו בשבילך ←</p>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 2 — BUILD INTEREST ── -->
+        <div class="slide" id="slide-2">
+          <div class="slide-bg"></div>
+          <div class="slide-overlay"></div>
+          <div class="slide-number">02 / 06</div>
+          <div class="slide-content">
+            <span class="slide-tag">🔥 הנתון המטורף</span>
+            <h2 class="slide-headline">
+              <span class="gold">99%</span> מהאנשים שרצו
+              ללמוד דרבוקה — ויתרו
+            </h2>
+            <p class="slide-body">
+              לא כי קשה. לא כי אין להם כישרון.
+              <br/>כי הם לא ידעו את 3 הדברים האלה.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 3 — MISTAKE / VALUE ── -->
+        <div class="slide" id="slide-3">
+          <div class="slide-bg"></div>
+          <div class="slide-number">03 / 06</div>
+          <div class="slide-content mistake-card">
+            <span class="slide-tag">⚠️ הטעות שמחזיקה אותך במקום</span>
+            <div class="mistake-row">
+              <div class="mistake-icon wrong">✗</div>
+              <div class="mistake-text">
+                <strong>ללמוד מסרטוני יוטיוב לבד</strong>
+                <br/>חצי שנה ואתה עדיין באותו מקום. בלי תיקון, בלי פידבק — אתה מחזק הרגלים רעים.
+              </div>
+            </div>
+            <div class="mistake-row">
+              <div class="mistake-icon right">✓</div>
+              <div class="mistake-text">
+                <strong>מורה שרואה אותך ומתקן אותך</strong>
+                <br/>חודשיים עם מדריך נכון שווים שנתיים של עבודה עצמית. זה לא דעה — זה מה שאני רואה כל יום.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 4 — EMOTION ── -->
+        <div class="slide" id="slide-4">
+          <div class="slide-bg"></div>
+          <div class="slide-overlay"></div>
+          <div class="slide-number">04 / 06</div>
+          <div class="slide-content">
+            <span class="slide-tag">🎶 הרגע שמשנה הכל</span>
+            <h2 class="slide-headline">
+              יש רגע אחד
+              שכל תלמיד שלי לא ישכח.
+            </h2>
+            <p class="slide-body">
+              הרגע שהוא שובר את הקצב הראשון בפני עצמו.
+              <br/>יש כאלה שצוחקים. יש כאלה שרועדים.
+              <br/>אחד בכה.
+              <br/>כי זה לא נגינה — <strong>זה להרגיש ששייך לבמה.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 5 — PUNCH ── -->
+        <div class="slide" id="slide-5">
+          <div class="slide-bg"></div>
+          <div class="slide-number">05 / 06</div>
+          <div class="punch-content">
+            <p class="big-quote">"דרבוקה<br/>היא לא כלי."</p>
+            <div class="punch-divider"></div>
+            <p class="sub">
+              היא כרטיס כניסה — לחפלות, לאירועים, לחתונות, להופעות.
+              <br/>למקומות שאף פעם לא חשבת שתגיע אליהם.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── SLIDE 6 — CTA ── -->
+        <div class="slide" id="slide-6">
+          <div class="slide-bg"></div>
+          <div class="slide-overlay"></div>
+          <div class="cta-content">
+            <p class="cta-brand">Darbuka by ALBO</p>
+            <h2 class="cta-big">מוכן<br/>להתחיל?</h2>
+            <p class="cta-sub">
+              שלח לי הודעה עכשיו.
+              <br/>ונבנה ביחד את הנגן שתמיד רצית להיות.
+            </p>
+            <a href="#" class="cta-btn">שלח הודעה ←</a>
+          </div>
+        </div>
+
+      </div><!-- /slides-inner -->
+    </div><!-- /slides-track -->
+
+    <!-- Progress dots -->
+    <div class="progress-dots" id="progressDots"></div>
+
+    <!-- Nav row -->
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">›</button>
+      <span class="slide-counter" id="slideCounter">1 / 6</span>
+      <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">‹</button>
+    </div>
+
+  </div><!-- /carousel-frame -->
+
+</section><!-- /carousel-section -->
+
+
+<!-- ════════════════════════════════════════
+     CONTENT GUIDE
+════════════════════════════════════════ -->
+<section class="guide-section">
+  <div class="guide-divider"></div>
+  <p class="guide-title">מדריך תוכן מלא</p>
+  <h2 class="guide-heading">כל מה שצריך כדי להעלות את הפוסט</h2>
+
+  <!-- SLIDE GUIDE CARDS -->
+
+  <!-- 1 -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num">1</div>
+      <div>
+        <div class="guide-card-label">שקופית 1 — Hook</div>
+        <div class="guide-card-title">עצירת גלילה</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <p class="main-text">אתה שומע מוזיקה ומרגיש שאתה אמור לנגן — אבל לא יודע מאיפה להתחיל?</p>
+      <p class="sub-text">המשיך לגלול. יש לי משהו בשבילך ←</p>
+      <div class="visual-box">
+        <div class="vb-label">רעיון ויזואלי</div>
+        <p>תמונת הופעה שלך עם קהל (IMG_4125) — אנרגיה מלאה, תאורה דרמטית. הטקסט גדול, לבן, מרכזי. לוגו קטן בפינה עליונה.</p>
+      </div>
+      <div class="visual-box" style="margin-top:8px">
+        <div class="vb-label">אנימציה מומלצת</div>
+        <p>Fade-in מהיר על הכיתוב + Zoom-in עדין על הרקע. משך: 0.6s.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num">2</div>
+      <div>
+        <div class="guide-card-label">שקופית 2 — בניית עניין</div>
+        <div class="guide-card-title">הנתון שמעצור</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <p class="main-text">99% מהאנשים שרצו ללמוד דרבוקה — ויתרו</p>
+      <p class="sub-text">לא כי קשה. לא כי אין להם כישרון. כי הם לא ידעו את 3 הדברים האלה.</p>
+      <div class="visual-box">
+        <div class="vb-label">רעיון ויזואלי</div>
+        <p>תמונת המדבר שלך (צילום אמנותי) — אתה לבד עם הדרבוקה, נוף פתוח. מרגיש אייקוני ועצמאי. "99%" בזהב גדול מאוד.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num">3</div>
+      <div>
+        <div class="guide-card-label">שקופית 3 — ערך / טעות נפוצה</div>
+        <div class="guide-card-title">הטעות שמחזיקה אותך במקום</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <ul>
+        <li><strong>✗ ללמוד מסרטוני יוטיוב לבד:</strong> חצי שנה ואתה עדיין באותו מקום. בלי תיקון — מחזק הרגלים רעים.</li>
+        <li><strong>✓ מורה שרואה אותך ומתקן:</strong> חודשיים עם מדריך נכון שווים שנתיים של עבודה עצמית. זה מה שאני רואה כל יום.</li>
+      </ul>
+      <div class="visual-box">
+        <div class="vb-label">רעיון ויזואלי</div>
+        <p>רקע כהה נקי (Navy + זהב) עם שתי שורות: ✗ אדום חלש / ✓ זהב חזק. ללא תמונה — הטקסט הוא הכוכב. טיפוגרפיה נקייה.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num">4</div>
+      <div>
+        <div class="guide-card-label">שקופית 4 — רגש / סיפור</div>
+        <div class="guide-card-title">הרגע שמשנה הכל</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <p class="main-text">יש רגע אחד שכל תלמיד שלי לא ישכח.</p>
+      <p class="sub-text">הרגע שהוא שובר את הקצב הראשון לבד. יש כאלה שצוחקים. יש כאלה שרועדים. אחד בכה. כי זה לא נגינה — זה להרגיש ששייך לבמה.</p>
+      <div class="visual-box">
+        <div class="vb-label">רעיון ויזואלי</div>
+        <p>תמונת ההופעה עם הקהל — אתה מעל כולם, כולם סביבך, אנרגיה מטורפת. Overlay כהה בתחתית עם הטקסט. תחושה של "להיות שייך לרגע הזה".</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num">5</div>
+      <div>
+        <div class="guide-card-label">שקופית 5 — Punch / תובנה</div>
+        <div class="guide-card-title">המשפט שנשמר</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <p class="main-text">"דרבוקה היא לא כלי."</p>
+      <p class="sub-text">היא כרטיס כניסה — לחפלות, לאירועים, לחתונות, להופעות. למקומות שאף פעם לא חשבת שתגיע אליהם.</p>
+      <div class="visual-box">
+        <div class="vb-label">רעיון ויזואלי</div>
+        <p>רקע שחור מלא. ציטוט בזהב גדול מאוד במרכז. מינימליסטי מוחלט — כמו פוסטר. עוצמה בפשטות. קו זהב דק מתחת למשפט.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num">6</div>
+      <div>
+        <div class="guide-card-label">שקופית 6 — CTA</div>
+        <div class="guide-card-title">קריאה לפעולה</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <p class="main-text">מוכן להתחיל?</p>
+      <p class="sub-text">שלח לי הודעה עכשיו. ונבנה ביחד את הנגן שתמיד רצית להיות.</p>
+      <p style="font-size:13px; color:rgba(201,168,76,.8); margin-top:6px; font-weight:600;">כפתור CTA: "שלח הודעה ←"</p>
+      <div class="visual-box">
+        <div class="vb-label">רעיון ויזואלי</div>
+        <p>לוגו Darbuka by ALBO על רקע שחור עם Opacity נמוך. שם המותג בזהב. כפתור זהב מוצק ובולט. נקי, יוקרתי, ברור.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN GUIDELINES -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:rgba(201,168,76,.1)">✦</div>
+      <div>
+        <div class="guide-card-label">עיצוב</div>
+        <div class="guide-card-title">הנחיות עיצוב מלאות</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <div class="grid-2">
+        <div class="grid-box">
+          <div class="gb-label">פלטת צבעים</div>
+          <p>שחור #0A0A0A · נייבי כהה #0D1B2A · זהב #C9A84C · זהב בהיר #E8CC7A · לבן חם #F5F0E8</p>
+        </div>
+        <div class="grid-box">
+          <div class="gb-label">פונטים</div>
+          <p>Heebo Black 900 לכותרות · Heebo Regular 400 לגוף · Heebo Light 300 לפרטים</p>
+        </div>
+        <div class="grid-box">
+          <div class="gb-label">פורמט</div>
+          <p>1:1 ריבועי (1080×1080px) לאינסטגרם · 4:5 (1080×1350px) לפייסבוק</p>
+        </div>
+        <div class="grid-box">
+          <div class="gb-label">Overlay תמונות</div>
+          <p>Gradient כהה מלמטה 70–95%. Vignette עדין. שמור על פנים ועיניים גלויים.</p>
+        </div>
+        <div class="grid-box">
+          <div class="gb-label">תמונות</div>
+          <p>שקופיות 1,4: הופעה עם קהל · שקופית 2: צילום מדבר · שקופית 6: לוגו</p>
+        </div>
+        <div class="grid-box">
+          <div class="gb-label">Spacing</div>
+          <p>Padding פנימי: 32px. שוליים בין אלמנטים: 12–16px. כיתוב: אל תמלא יותר מ-70% מהשקופית.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSITIONS -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:rgba(201,168,76,.1)">▶</div>
+      <div>
+        <div class="guide-card-label">אנימציות</div>
+        <div class="guide-card-title">מעברים ותנועה</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <ul>
+        <li><strong>מעבר בין שקופיות:</strong> Slide אופקי חלק (ease-in-out 0.5s) — כמו סייפ באינסטגרם</li>
+        <li><strong>כניסת טקסט:</strong> Fade-up עדין (translateY +12px → 0, opacity 0→1) עם delay של 0.15s לכל שורה</li>
+        <li><strong>רקע תמונה:</strong> Zoom-in איטי מ-100% ל-104% (Ken Burns effect) — 6 שניות</li>
+        <li><strong>שקופית 5 (Punch):</strong> טקסט הזהב מופיע עם Scale 0.9 → 1 + Fade-in — תחושת Weight</li>
+        <li><strong>שקופית 6 (CTA):</strong> כפתור הזהב עם Pulse קל (scale 1 → 1.02 → 1) כל 2 שניות</li>
+        <li><strong>תיחום Swipe:</strong> Haptic feedback קל בסיום כל שקופית (מובייל)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CAPTION -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:rgba(201,168,76,.1)">✍</div>
+      <div>
+        <div class="guide-card-label">Caption לפוסט</div>
+        <div class="guide-card-title">הטקסט שכותבים מתחת</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <div class="caption-box">
+        <div class="cb-label">Caption מלא — העתק-הדבק</div>
+        <p>🥁 אם פעם חשבת "בא לי ללמוד דרבוקה" — הפוסט הזה בשבילך.
+
+לא צריך ניסיון. לא צריך כישרון מולד.
+צריך רק את הגישה הנכונה ומישהו שיוביל אותך נכון.
+
+אני אליה אלבו — נגן ומורה לדרבוקה.
+מלמד מתחילים מוחלטים ועד נגנים ברמה מתקדמת.
+שיעורים פרטיים | אונליין ופרונטלי
+
+💬 שלח לי הודעה ונתחיל 🔥
+
+#דרבוקה #לימודידרבוקה #darbukabyalbo #darbuka</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA FOR COMMENTS -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:rgba(201,168,76,.1)">💬</div>
+      <div>
+        <div class="guide-card-label">מעורבות</div>
+        <div class="guide-card-title">CTA לתגובות</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <ul>
+        <li>כתוב <strong>"🥁"</strong> בתגובות ואני אשלח לך את לוח הזמנים שלי לשיעורים</li>
+        <li>מה הייתה הסיבה האחרונה שדחית לימוד דרבוקה? כתוב לי בתגובות 👇</li>
+        <li>אם הגעת לשקופית האחרונה — כבר ידעת שאתה רוצה לנגן. שלח הודעה.</li>
+        <li>תייג חבר שאמר לו שיום אחד ילמד לנגן 🎵</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ALT HOOKS -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:rgba(201,168,76,.1)">⚡</div>
+      <div>
+        <div class="guide-card-label">5 כותרות חלופיות</div>
+        <div class="guide-card-title">Hook ראשון — גרסאות A/B</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <div class="alt-list">
+        <div class="alt-item"><span>כולם אמרו לי "דרבוקה זה לא בשבילך". הנה מה שקרה אחר כך.</span></div>
+        <div class="alt-item"><span>בן 13 התחיל אצלי. בן 16 ניגן חתונה. זה לא מזל — זה שיטה.</span></div>
+        <div class="alt-item"><span>אם אתה יכול לזוז לקצב — אתה יכול ללמוד לנגן דרבוקה. בלי יוצא מן הכלל.</span></div>
+        <div class="alt-item"><span>3 חודשים. מתחיל מוחלט → ניגן חפלה. איך זה קורה? ←</span></div>
+        <div class="alt-item"><span>הדרבוקה שלך מחכה לך. השאלה היא רק מתי אתה מתחיל.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MUSIC -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:rgba(201,168,76,.1)">🎵</div>
+      <div>
+        <div class="guide-card-label">מוזיקה</div>
+        <div class="guide-card-title">מוזיקת רקע מומלצת</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <div class="music-row">
+        <div class="music-icon">🥁</div>
+        <div class="music-text">
+          <strong>אפשרות 1 — הכי חזקה</strong>
+          Solo דרבוקה שלך עצמך — ריתמוס נקי, אנרגטי. מחבר ישירות למותג ומוסיף אותנטיות.
+        </div>
+      </div>
+      <div class="music-row">
+        <div class="music-icon">🎶</div>
+        <div class="music-text">
+          <strong>אפשרות 2 — Oriental Cinematic</strong>
+          מוזיקה אוריינטלית מינימלית + דרבוקה רקע (חפש TikTok Sound: "oriental beat" / "darbuka loop").
+        </div>
+      </div>
+      <div class="music-row">
+        <div class="music-icon">✨</div>
+        <div class="music-text">
+          <strong>אפשרות 3 — Trap + Oriental Fusion</strong>
+          Beat מודרני עם בסיס דרבוקה — אפקטיבי לקהל צעיר (13-25). מרגיש רלוונטי לטיקטוק.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HASHTAGS -->
+  <div class="guide-card">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:rgba(201,168,76,.1)">#</div>
+      <div>
+        <div class="guide-card-label">Hashtags</div>
+        <div class="guide-card-title">תגיות לפוסט</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <div class="tag-grid">
+        <span class="tag">#דרבוקה</span>
+        <span class="tag">#לימודידרבוקה</span>
+        <span class="tag">#נגןדרבוקה</span>
+        <span class="tag">#darbukabyalbo</span>
+        <span class="tag">#darbuka</span>
+        <span class="tag">#מוזיקהישראלית</span>
+        <span class="tag">#שיעורימוזיקה</span>
+        <span class="tag">#חפלה</span>
+        <span class="tag">#אירועים</span>
+        <span class="tag">#נגינה</span>
+        <span class="tag">#לנגן</span>
+        <span class="tag">#מוזיקה</span>
+        <span class="tag">#orientalmusic</span>
+        <span class="tag">#percussionist</span>
+        <span class="tag">#drumlesson</span>
+        <span class="tag">#musiclesson</span>
+        <span class="tag">#תופים</span>
+        <span class="tag">#ריתמוס</span>
+        <span class="tag">#אלבו</span>
+        <span class="tag">#albo</span>
+        <span class="tag">#מורהלמוזיקה</span>
+        <span class="tag">#wedding</span>
+        <span class="tag">#חתונה</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REELS IDEA -->
+  <div class="guide-card" style="border-color:rgba(201,168,76,.3)">
+    <div class="guide-card-header">
+      <div class="guide-card-num" style="background:linear-gradient(135deg, #C9A84C, #8A6B2E); border:none; color:#000">▷</div>
+      <div>
+        <div class="guide-card-label">בונוס</div>
+        <div class="guide-card-title">איך הופכים את זה לרילס קצר?</div>
+      </div>
+    </div>
+    <div class="guide-card-body">
+      <div class="reels-card">
+        <div class="reels-step">
+          <div class="reels-step-num">1</div>
+          <div class="reels-step-text"><strong>0–2 שניות — Hook ויזואלי:</strong> Cut מהיר לרגע הכי אנרגטי שלך מנגן (הופעה עם קהל). ללא טקסט — רק תמונה + מוזיקה.</div>
+        </div>
+        <div class="reels-step">
+          <div class="reels-step-num">2</div>
+          <div class="reels-step-text"><strong>2–5 שניות — Hook טקסטואלי:</strong> Text Overlay: "אתה שומע מוזיקה ורוצה לנגן?" — מרכז, לבן, גדול. Cut מהיר.</div>
+        </div>
+        <div class="reels-step">
+          <div class="reels-step-num">3</div>
+          <div class="reels-step-text"><strong>5–12 שניות — ערך מהיר:</strong> 3 Cut מהירים: ✗ יוטיוב לבד → ✓ שיעור עם מורה → ✓ קצב ראשון. כל אחד 2–3 שניות.</div>
+        </div>
+        <div class="reels-step">
+          <div class="reels-step-num">4</div>
+          <div class="reels-step-text"><strong>12–18 שניות — Punch:</strong> מסך שחור. טקסט זהב: "דרבוקה היא לא כלי. היא כרטיס כניסה." — 3 שניות עצירה.</div>
+        </div>
+        <div class="reels-step">
+          <div class="reels-step-num">5</div>
+          <div class="reels-step-text"><strong>18–22 שניות — CTA:</strong> Cut לצילום שלך מחייך עם הדרבוקה. Text Overlay: "שלח DM ונתחיל 🔥" + לוגו. Fade-out לשחור.</div>
+        </div>
+      </div>
+      <p style="margin-top:14px; font-size:12.5px; color:rgba(245,240,232,.5);">
+        טיפ: העלה את הרילס 24–48 שעות לפני הקרוסלה ← טרגף טראפיק לפרופיל ← הפוסט מקבל חשיפה כפולה.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer style="text-align:center; padding:30px 20px 50px; border-top:1px solid rgba(201,168,76,.08);">
+  <img src="images/logo.jpeg" alt="Darbuka by ALBO" style="width:60px; border-radius:50%; border:1.5px solid rgba(201,168,76,.3); margin-bottom:12px;" />
+  <p style="font-size:10px; letter-spacing:4px; color:rgba(201,168,76,.4); text-transform:uppercase;">Darbuka by ALBO © 2025</p>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     CAROUSEL SCRIPT
+════════════════════════════════════════ -->
+<script>
+  const total = 6;
+  let current = 0;
+  const inner = document.getElementById('slidesInner');
+  const counter = document.getElementById('slideCounter');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('progressDots');
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    const slideW = inner.parentElement.offsetWidth;
+    inner.style.transform = `translateX(${current * slideW}px)`;
+    counter.textContent = `${current + 1} / ${total}`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    document.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function changeSlide(dir) { goTo(current - dir); }
+
+  // Touch / swipe
+  let startX = 0;
+  inner.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  inner.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) changeSlide(diff > 0 ? 1 : -1);
+  });
+
+  // Arrow keys
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') changeSlide(1);
+    if (e.key === 'ArrowRight') changeSlide(-1);
+  });
+
+  // Init
+  goTo(0);
+
+  // Resize fix
+  window.addEventListener('resize', () => goTo(current));
+</script>
+
+</body>
+</html>
